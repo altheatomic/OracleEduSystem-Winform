@@ -1,5 +1,6 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System.Data;
+using ATBM_07.Helpers; // Thêm dòng này nếu DatabaseHelper nằm trong namespace Helpers
 
 namespace ATBM_07.Services
 {
@@ -13,64 +14,60 @@ namespace ATBM_07.Services
         private static List<string> LoadObjectsFromProcedure(string procName)
         {
             var list = new List<string>();
-            using (var conn = new OracleConnection(DatabaseHelper.ConnectionString))
-            {
-                conn.Open();
-                using (var cmd = new OracleCommand(procName, conn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("p_result", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
 
-                    using (var reader = cmd.ExecuteReader())
-                        while (reader.Read())
-                            list.Add(reader.GetString(0));
+            using (var cmd = new OracleCommand(procName, DatabaseHelper.Connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("p_result", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                        list.Add(reader.GetString(0));
                 }
             }
+
             return list;
         }
 
         public static List<string> GetCompatibleObjects(string privilege)
         {
             var list = new List<string>();
-            using (var conn = new OracleConnection(DatabaseHelper.ConnectionString))
-            {
-                conn.Open();
-                using (var cmd = new OracleCommand("get_compatible_objects", conn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("p_privilege", OracleDbType.Varchar2).Value = privilege;
-                    cmd.Parameters.Add("p_result", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
 
-                    using (var reader = cmd.ExecuteReader())
-                        while (reader.Read())
-                            list.Add(reader.GetString(0));
+            using (var cmd = new OracleCommand("get_compatible_objects", DatabaseHelper.Connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("p_privilege", OracleDbType.Varchar2).Value = privilege;
+                cmd.Parameters.Add("p_result", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                        list.Add(reader.GetString(0));
                 }
             }
+
             return list;
         }
 
         public static List<string> GetTableColumns(string tableName)
         {
             var columns = new List<string>();
-            using (var conn = new OracleConnection(DatabaseHelper.ConnectionString))
+
+            using (var cmd = new OracleCommand(
+                "SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = :tbl AND OWNER = USER ORDER BY COLUMN_ID",
+                DatabaseHelper.Connection))
             {
-                conn.Open();
-                using (var cmd = new OracleCommand(
-                    "SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = :tbl AND OWNER = USER ORDER BY COLUMN_ID", conn))
+                cmd.Parameters.Add(new OracleParameter("tbl", tableName.ToUpper()));
+
+                using (var reader = cmd.ExecuteReader())
                 {
-                    cmd.Parameters.Add(new OracleParameter("tbl", tableName.ToUpper()));
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            columns.Add(reader.GetString(0));
-                        }
-                    }
+                    while (reader.Read())
+                        columns.Add(reader.GetString(0));
                 }
             }
+
             return columns;
         }
-
-
     }
 }

@@ -40,6 +40,7 @@ namespace ATBM_07
             listViewUsers_User1.ItemChecked += listViewUsers_User1_ItemChecked;
             textBoxUsername.TextChanged += textBoxUsernameOrPassword_TextChanged;
             textBoxPassword.TextChanged += textBoxUsernameOrPassword_TextChanged;
+            buttonCreateUser.Click += buttonCreateUser_Click;
 
         }
 
@@ -102,6 +103,43 @@ namespace ATBM_07
             buttonCreateUser.Enabled =
                 !string.IsNullOrWhiteSpace(textBoxUsername.Text) &&
                 !string.IsNullOrWhiteSpace(textBoxPassword.Text);
+        }
+
+        private void buttonCreateUser_Click(object sender, EventArgs e)
+        {
+            string username = textBoxUsername.Text.Trim();
+            string password = textBoxPassword.Text.Trim();
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Please fill in all the boxes.");
+                return;
+            }
+
+            try
+            {
+                if (UserService.CheckUserExists(username))
+                {
+                    MessageBox.Show($"User '{username}' already exists.");
+                    return;
+                }
+
+                UserService.CreateUser(username, password);
+                MessageBox.Show($"Created user '{username}'.");
+
+                textBoxUsername.Clear();
+                textBoxPassword.Clear();
+                buttonCreateUser.Enabled = false;
+
+                if (comboBoxRoles_User1.SelectedItem?.ToString() != "None")
+                {
+                    comboBoxRoles_SelectedIndexChanged(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n" + ex.Message);
+            }
         }
 
     }

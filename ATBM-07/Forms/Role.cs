@@ -1,4 +1,6 @@
-﻿using ATBM_07.Services;
+﻿using ATBM_07.Forms;
+using ATBM_07.Services;
+using Oracle.ManagedDataAccess.Client;
 
 namespace ATBM_07
 {
@@ -15,6 +17,7 @@ namespace ATBM_07
             comboBoxRoles_Role1.SelectedIndexChanged += comboBoxRoles_SelectedIndexChanged;
             listViewRoles_Role1.ItemChecked += listViewRoles_Role1_ItemChecked;
             textBoxNewRole.TextChanged += textBoxNewRole_TextChanged;
+            buttonCreateRole.Click += buttonCreateRole_Click;
         }
 
         private void LoadRoles()
@@ -73,5 +76,52 @@ namespace ATBM_07
         {
             buttonCreateRole.Enabled = !string.IsNullOrWhiteSpace(textBoxNewRole.Text);
         }
+
+        private void buttonViewPriv_Role_Click(object sender, EventArgs e)
+        {
+            if (listViewRoles_Role1.CheckedItems.Count != 1)
+            {
+                MessageBox.Show("Please select exactly one role to view privileges.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string selectedRole = listViewRoles_Role1.CheckedItems[0].Text;
+
+        }
+
+        private void buttonCreateRole_Click(object sender, EventArgs e)
+        {
+            string newRole = textBoxNewRole.Text.Trim();
+
+            if (string.IsNullOrEmpty(newRole))
+            {
+                MessageBox.Show("Please enter a role name.");
+                return;
+            }
+
+            try
+            {
+                if (RoleService.CheckRoleExists(newRole))
+                {
+                    MessageBox.Show($"Role '{newRole}' already exists.");
+                    return;
+                }
+
+                RoleService.CreateRole(newRole);
+                MessageBox.Show($"Created role '{newRole}'.");
+
+                textBoxNewRole.Clear();
+                buttonCreateRole.Enabled = false;
+                LoadRoles(); // Reload the list of roles
+            }
+            catch (OracleException ex)
+            {
+                if (ex.Number == 20002) // Custom error code for existing role
+                    MessageBox.Show(ex.Message);
+                else
+                    MessageBox.Show("Oracle error:\n" + ex.Message);
+            }
+        }
+
     }
 }

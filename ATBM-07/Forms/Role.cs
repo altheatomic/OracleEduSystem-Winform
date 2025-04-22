@@ -105,9 +105,15 @@ namespace ATBM_07
             }
 
             string selectedRole = listViewRoles_Role1.CheckedItems[0].Text;
+
             listViewPrivs_Role.Columns.Clear();
             listViewPrivs_Role.Items.Clear();
-            listViewPrivs_Role.Columns.Add("Privilege Details", 500); 
+            listViewPrivs_Role.View = View.Details;
+            listViewPrivs_Role.FullRowSelect = true;
+            listViewPrivs_Role.GridLines = true;
+
+            listViewPrivs_Role.Columns.Add("Privilege", 150);
+            listViewPrivs_Role.Columns.Add("Object", 350);
             buttonRevoke_Role.Enabled = false;
 
             try
@@ -122,11 +128,24 @@ namespace ATBM_07
                     {
                         while (reader.Read())
                         {
-                            string privilegeDetail = reader.GetString(0);
-                            var item = new ListViewItem(privilegeDetail);
+                            string raw = reader.GetString(0);
+
+                            string privilege = raw;
+                            string obj = "";
+
+                            if (raw.Contains(" ON "))
+                            {
+                                var parts = raw.Split(new[] { " ON " }, StringSplitOptions.None);
+                                privilege = parts[0];
+                                obj = parts.Length > 1 ? parts[1] : "";
+                            }
+
+                            var item = new ListViewItem(privilege);
+                            item.SubItems.Add(obj);
                             listViewPrivs_Role.Items.Add(item);
                         }
-                        listViewPrivs_Role.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+                        listViewPrivs_Role.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                     }
                 }
             }
@@ -134,7 +153,6 @@ namespace ATBM_07
             {
                 MessageBox.Show("Error loading privileges:\n" + ex.Message);
             }
-
         }
 
         private void listViewPrivs_Role_SelectedIndexChanged(object sender, EventArgs e)

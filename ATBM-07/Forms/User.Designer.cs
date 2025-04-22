@@ -43,6 +43,9 @@
             textBoxPassword = new TextBox();
             buttonCreateUser = new Button();
             buttonViewPriv_User = new Button();
+            buttonRevoke_User = new Button();
+            listViewPrivs_User = new ListView();
+            buttonRevokeRole = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -83,7 +86,7 @@
             labelRoles_User1.AutoSize = true;
             labelRoles_User1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelRoles_User1.ForeColor = Color.Teal;
-            labelRoles_User1.Location = new Point(169, 272);
+            labelRoles_User1.Location = new Point(132, 262);
             labelRoles_User1.Name = "labelRoles_User1";
             labelRoles_User1.Size = new Size(118, 45);
             labelRoles_User1.TabIndex = 4;
@@ -92,24 +95,24 @@
             // comboBoxRoles_User1
             // 
             comboBoxRoles_User1.FormattingEnabled = true;
-            comboBoxRoles_User1.Location = new Point(418, 269);
+            comboBoxRoles_User1.Location = new Point(132, 320);
             comboBoxRoles_User1.Name = "comboBoxRoles_User1";
-            comboBoxRoles_User1.Size = new Size(575, 53);
+            comboBoxRoles_User1.Size = new Size(382, 53);
             comboBoxRoles_User1.TabIndex = 5;
             // 
             // comboBoxUsers_User1
             // 
             comboBoxUsers_User1.FormattingEnabled = true;
-            comboBoxUsers_User1.Location = new Point(419, 361);
+            comboBoxUsers_User1.Location = new Point(132, 461);
             comboBoxUsers_User1.Name = "comboBoxUsers_User1";
-            comboBoxUsers_User1.Size = new Size(574, 53);
+            comboBoxUsers_User1.Size = new Size(382, 53);
             comboBoxUsers_User1.TabIndex = 6;
             // 
             // listViewUsers_User1
             // 
-            listViewUsers_User1.Location = new Point(419, 453);
+            listViewUsers_User1.Location = new Point(133, 553);
             listViewUsers_User1.Name = "listViewUsers_User1";
-            listViewUsers_User1.Size = new Size(574, 317);
+            listViewUsers_User1.Size = new Size(381, 317);
             listViewUsers_User1.TabIndex = 7;
             listViewUsers_User1.UseCompatibleStateImageBehavior = false;
             // 
@@ -119,7 +122,7 @@
             labelSearchUser_User1.BackColor = Color.White;
             labelSearchUser_User1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelSearchUser_User1.ForeColor = Color.Teal;
-            labelSearchUser_User1.Location = new Point(169, 364);
+            labelSearchUser_User1.Location = new Point(132, 399);
             labelSearchUser_User1.Name = "labelSearchUser_User1";
             labelSearchUser_User1.Size = new Size(226, 45);
             labelSearchUser_User1.TabIndex = 8;
@@ -132,7 +135,7 @@
             buttonDelete_User.Enabled = false;
             buttonDelete_User.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonDelete_User.ForeColor = Color.White;
-            buttonDelete_User.Location = new Point(719, 820);
+            buttonDelete_User.Location = new Point(609, 456);
             buttonDelete_User.Name = "buttonDelete_User";
             buttonDelete_User.Size = new Size(232, 65);
             buttonDelete_User.TabIndex = 9;
@@ -141,7 +144,7 @@
             // 
             // textBoxUsername
             // 
-            textBoxUsername.Location = new Point(1363, 269);
+            textBoxUsername.Location = new Point(840, 257);
             textBoxUsername.Name = "textBoxUsername";
             textBoxUsername.Size = new Size(348, 50);
             textBoxUsername.TabIndex = 10;
@@ -151,7 +154,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Teal;
-            label5.Location = new Point(1135, 272);
+            label5.Location = new Point(612, 257);
             label5.Name = "label5";
             label5.Size = new Size(191, 45);
             label5.TabIndex = 11;
@@ -162,7 +165,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.Teal;
-            label6.Location = new Point(1135, 366);
+            label6.Location = new Point(612, 354);
             label6.Name = "label6";
             label6.Size = new Size(193, 45);
             label6.TabIndex = 13;
@@ -170,7 +173,7 @@
             // 
             // textBoxPassword
             // 
-            textBoxPassword.Location = new Point(1363, 363);
+            textBoxPassword.Location = new Point(840, 351);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.Size = new Size(348, 50);
             textBoxPassword.TabIndex = 12;
@@ -183,7 +186,7 @@
             buttonCreateUser.Enabled = false;
             buttonCreateUser.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonCreateUser.ForeColor = Color.White;
-            buttonCreateUser.Location = new Point(1314, 466);
+            buttonCreateUser.Location = new Point(1260, 308);
             buttonCreateUser.Name = "buttonCreateUser";
             buttonCreateUser.Size = new Size(249, 65);
             buttonCreateUser.TabIndex = 14;
@@ -197,12 +200,50 @@
             buttonViewPriv_User.Enabled = false;
             buttonViewPriv_User.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonViewPriv_User.ForeColor = Color.White;
-            buttonViewPriv_User.Location = new Point(455, 820);
+            buttonViewPriv_User.Location = new Point(873, 456);
             buttonViewPriv_User.Name = "buttonViewPriv_User";
             buttonViewPriv_User.Size = new Size(232, 65);
             buttonViewPriv_User.TabIndex = 83;
             buttonViewPriv_User.Text = "VIEW PRIV";
             buttonViewPriv_User.UseVisualStyleBackColor = false;
+            // 
+            // buttonRevoke_User
+            // 
+            buttonRevoke_User.AutoSize = true;
+            buttonRevoke_User.BackColor = Color.Teal;
+            buttonRevoke_User.Enabled = false;
+            buttonRevoke_User.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonRevoke_User.ForeColor = Color.White;
+            buttonRevoke_User.Location = new Point(1135, 456);
+            buttonRevoke_User.Margin = new Padding(4);
+            buttonRevoke_User.Name = "buttonRevoke_User";
+            buttonRevoke_User.Size = new Size(232, 65);
+            buttonRevoke_User.TabIndex = 100;
+            buttonRevoke_User.Text = "REVOKE PRIV";
+            buttonRevoke_User.UseVisualStyleBackColor = false;
+            // 
+            // listViewPrivs_User
+            // 
+            listViewPrivs_User.Location = new Point(608, 553);
+            listViewPrivs_User.Name = "listViewPrivs_User";
+            listViewPrivs_User.Size = new Size(1018, 317);
+            listViewPrivs_User.TabIndex = 101;
+            listViewPrivs_User.UseCompatibleStateImageBehavior = false;
+            // 
+            // buttonRevokeRole
+            // 
+            buttonRevokeRole.AutoSize = true;
+            buttonRevokeRole.BackColor = Color.Teal;
+            buttonRevokeRole.Enabled = false;
+            buttonRevokeRole.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonRevokeRole.ForeColor = Color.White;
+            buttonRevokeRole.Location = new Point(1394, 456);
+            buttonRevokeRole.Margin = new Padding(4);
+            buttonRevokeRole.Name = "buttonRevokeRole";
+            buttonRevokeRole.Size = new Size(238, 65);
+            buttonRevokeRole.TabIndex = 102;
+            buttonRevokeRole.Text = "REVOKE ROLE";
+            buttonRevokeRole.UseVisualStyleBackColor = false;
             // 
             // User
             // 
@@ -210,6 +251,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1894, 1009);
+            Controls.Add(buttonRevokeRole);
+            Controls.Add(listViewPrivs_User);
+            Controls.Add(buttonRevoke_User);
             Controls.Add(buttonViewPriv_User);
             Controls.Add(buttonCreateUser);
             Controls.Add(label6);
@@ -251,5 +295,8 @@
         private TextBox textBoxPassword;
         private Button buttonCreateUser;
         private Button buttonViewPriv_User;
+        private Button buttonRevoke_User;
+        private ListView listViewPrivs_User;
+        private Button buttonRevokeRole;
     }
 }

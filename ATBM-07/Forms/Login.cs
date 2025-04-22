@@ -43,7 +43,7 @@ namespace ATBM_07
                     case "NVPDT":
                         new DashBoard_NVPDT().Show(); break;
                     case "NVPKT":
-                        new DashBoard_NVPTK().Show(); break;
+                        new DashBoard_NVPKT().Show(); break;
                     case "NVCTSV":
                         new DashBoard_NVCTSV().Show(); break;
                     case "TRGDV":

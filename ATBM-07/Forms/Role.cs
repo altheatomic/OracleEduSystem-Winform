@@ -162,40 +162,27 @@ namespace ATBM_07
 
         private void buttonRevoke_Role_Click(object sender, EventArgs e)
         {
-            if (listViewPrivs_Role.SelectedItems.Count != 1) return;
+            if (listViewPrivs_Role.SelectedItems.Count != 1 || listViewRoles_Role1.CheckedItems.Count != 1)
+            {
+                MessageBox.Show("Please select one role and one privilege to revoke.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            string selectedPriv = listViewPrivs_Role.SelectedItems[0].Text;
+            string selectedPriv = listViewPrivs_Role.SelectedItems[0].SubItems[0].Text;
+            string selectedObj = listViewPrivs_Role.SelectedItems[0].SubItems[1].Text;
             string selectedRole = listViewRoles_Role1.CheckedItems[0].Text;
 
             try
             {
-                if (selectedPriv.Contains(" ON "))
+                if (string.IsNullOrWhiteSpace(selectedObj))
                 {
-                    // Structure: SELECT ON USER_ADMIN.SINHVIEN or UPDATE ON USER_ADMIN.SINHVIEN.MASV
-                    string[] parts = selectedPriv.Split(new[] { " ON " }, StringSplitOptions.None);
-                    string priv = parts[0].Trim();
-                    string obj = parts[1].Trim();
-
-                    // With column (VD: USER_ADMIN.SINHVIEN.MASV)
-                    if (obj.Split('.').Length == 3)
-                    {
-                        string[] objParts = obj.Split('.');
-                        string objectName = objParts[0] + "." + objParts[1]; // USER_ADMIN.SINHVIEN
-                        string column = objParts[2];                         // MASV
-
-                        // Revoke object privilege by column
-                        RoleService.RevokeObjectPrivilege(selectedRole, priv, objectName);
-                    }
-                    else
-                    {
-                        // Without column
-                        RoleService.RevokeObjectPrivilege(selectedRole, priv, obj);
-                    }
+                    // System privilege
+                    RoleService.RevokeSystemPrivilege(selectedRole, selectedPriv);
                 }
                 else
                 {
-                    // System privilege (VD: CREATE SESSION)
-                    RoleService.RevokeSystemPrivilege(selectedRole, selectedPriv.Trim());
+                    // Object privilege
+                    RoleService.RevokeObjectPrivilege(selectedRole, selectedPriv, selectedObj);
                 }
 
                 MessageBox.Show("Revoked successfully!");

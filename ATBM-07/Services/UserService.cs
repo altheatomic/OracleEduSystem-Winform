@@ -147,8 +147,5 @@ namespace ATBM_07.Services
                 cmd.ExecuteNonQuery();
             }
         }
-
-
-
     }
 }

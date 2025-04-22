@@ -28,12 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "DashBoard_TRGDV";
+            label10 = new Label();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 12F);
+            label10.ForeColor = Color.Teal;
+            label10.Location = new Point(161, 152);
+            label10.Name = "label10";
+            label10.Size = new Size(187, 21);
+            label10.TabIndex = 20;
+            label10.Text = "PHÂN CÔNG GIẢNG DẠY";
+            label10.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(136, 257);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(245, 128);
+            dataGridView1.TabIndex = 21;
+            // 
+            // DashBoard_TRGDV
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1894, 1009);
+            Controls.Add(dataGridView1);
+            Controls.Add(label10);
+            Name = "DashBoard_TRGDV";
+            Text = "DashBoard_TRGDV";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label10;
+        private DataGridView dataGridView1;
     }
 }

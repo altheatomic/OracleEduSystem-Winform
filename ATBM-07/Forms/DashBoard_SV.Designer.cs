@@ -74,17 +74,21 @@
             // 
             // textBox1
             // 
+            textBox1.BackColor = SystemColors.Control;
             textBox1.Font = new Font("Segoe UI", 12F);
             textBox1.Location = new Point(127, 55);
             textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
             textBox1.Size = new Size(120, 29);
             textBox1.TabIndex = 2;
             // 
             // textBox2
             // 
+            textBox2.BackColor = SystemColors.Control;
             textBox2.Font = new Font("Segoe UI", 12F);
             textBox2.Location = new Point(127, 99);
             textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
             textBox2.Size = new Size(120, 29);
             textBox2.TabIndex = 4;
             // 
@@ -122,9 +126,11 @@
             // 
             // textBox4
             // 
+            textBox4.BackColor = SystemColors.Control;
             textBox4.Font = new Font("Segoe UI", 12F);
             textBox4.Location = new Point(474, 55);
             textBox4.Name = "textBox4";
+            textBox4.ReadOnly = true;
             textBox4.Size = new Size(120, 29);
             textBox4.TabIndex = 8;
             // 
@@ -143,9 +149,11 @@
             // 
             // textBox5
             // 
+            textBox5.BackColor = SystemColors.Control;
             textBox5.Font = new Font("Segoe UI", 12F);
             textBox5.Location = new Point(474, 99);
             textBox5.Name = "textBox5";
+            textBox5.ReadOnly = true;
             textBox5.Size = new Size(120, 29);
             textBox5.TabIndex = 10;
             // 
@@ -163,9 +171,11 @@
             // 
             // textBox7
             // 
+            textBox7.BackColor = SystemColors.Control;
             textBox7.Font = new Font("Segoe UI", 12F);
             textBox7.Location = new Point(474, 203);
             textBox7.Name = "textBox7";
+            textBox7.ReadOnly = true;
             textBox7.Size = new Size(120, 29);
             textBox7.TabIndex = 16;
             // 
@@ -184,9 +194,11 @@
             // 
             // textBox8
             // 
+            textBox8.BackColor = SystemColors.Control;
             textBox8.Font = new Font("Segoe UI", 12F);
             textBox8.Location = new Point(127, 247);
             textBox8.Name = "textBox8";
+            textBox8.ReadOnly = true;
             textBox8.Size = new Size(120, 29);
             textBox8.TabIndex = 14;
             // 
@@ -258,7 +270,6 @@
             groupBox1.Size = new Size(643, 355);
             groupBox1.TabIndex = 18;
             groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
             // 
             // btnUsers
             // 
@@ -358,7 +369,6 @@
             groupBox2.Size = new Size(643, 366);
             groupBox2.TabIndex = 96;
             groupBox2.TabStop = false;
-            groupBox2.Text = "groupBox2";
             // 
             // DashBoard_SV
             // 

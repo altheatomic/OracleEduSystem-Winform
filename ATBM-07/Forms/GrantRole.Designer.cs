@@ -37,7 +37,6 @@
             panel1 = new Panel();
             label1 = new Label();
             label9 = new Label();
-            buttonRevoke_Role = new Button();
             buttonGrantPriv_Role = new Button();
             comboBoxColumns_Role = new ComboBox();
             labelColumn_Role = new Label();
@@ -160,27 +159,13 @@
             label9.Text = "Grant Privileges To Roles";
             label9.TextAlign = ContentAlignment.TopCenter;
             // 
-            // buttonRevoke_Role
-            // 
-            buttonRevoke_Role.AutoSize = true;
-            buttonRevoke_Role.BackColor = Color.Teal;
-            buttonRevoke_Role.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonRevoke_Role.ForeColor = Color.White;
-            buttonRevoke_Role.Location = new Point(1373, 719);
-            buttonRevoke_Role.Margin = new Padding(4);
-            buttonRevoke_Role.Name = "buttonRevoke_Role";
-            buttonRevoke_Role.Size = new Size(321, 91);
-            buttonRevoke_Role.TabIndex = 98;
-            buttonRevoke_Role.Text = "REVOKE PRIV";
-            buttonRevoke_Role.UseVisualStyleBackColor = false;
-            // 
             // buttonGrantPriv_Role
             // 
             buttonGrantPriv_Role.AutoSize = true;
             buttonGrantPriv_Role.BackColor = Color.Teal;
             buttonGrantPriv_Role.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonGrantPriv_Role.ForeColor = Color.White;
-            buttonGrantPriv_Role.Location = new Point(974, 719);
+            buttonGrantPriv_Role.Location = new Point(1133, 719);
             buttonGrantPriv_Role.Margin = new Padding(4);
             buttonGrantPriv_Role.Name = "buttonGrantPriv_Role";
             buttonGrantPriv_Role.Size = new Size(312, 91);
@@ -279,7 +264,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1894, 1009);
-            Controls.Add(buttonRevoke_Role);
             Controls.Add(buttonGrantPriv_Role);
             Controls.Add(comboBoxColumns_Role);
             Controls.Add(labelColumn_Role);
@@ -317,7 +301,6 @@
         private Panel panel1;
         private Label label1;
         private Label label9;
-        private Button buttonRevoke_Role;
         private Button buttonGrantPriv_Role;
         private CheckBox checkBoxWithGrant_Role;
         private ComboBox comboBoxColumns_Role;

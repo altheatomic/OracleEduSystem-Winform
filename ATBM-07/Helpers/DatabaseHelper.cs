@@ -8,7 +8,7 @@ namespace ATBM_07.Helpers
 
         public static bool Connect(string username, string password)
         {
-            string connStr = $"Data Source=localhost:1521/ATBM;User Id={username};Password={password};";
+            string connStr = $"Data Source=192.168.231.1/ATBM;User Id={username};Password={password};";
 
             try
             {
@@ -22,10 +22,15 @@ namespace ATBM_07.Helpers
                 return false;
             }
         }
-        public static string GetRoleFromVaitroFunction()
+        public static string GetRole(string username)
         {
             try
             {
+                if (username.Equals("user_admin", StringComparison.OrdinalIgnoreCase))
+                {
+                    return "PDB_DBA";
+                }
+
                 using (var cmd = new OracleCommand("SELECT user_admin.get_vaitro FROM dual", Connection))
                 {
                     return cmd.ExecuteScalar()?.ToString();
@@ -33,12 +38,10 @@ namespace ATBM_07.Helpers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Không thể lấy vai trò (get_vaitro): " + ex.Message);
+                MessageBox.Show("Can't get role (get_vaitro): " + ex.Message);
                 return null;
             }
         }
-
-
 
     }
 }

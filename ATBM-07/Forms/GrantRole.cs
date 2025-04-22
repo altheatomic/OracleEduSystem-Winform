@@ -48,7 +48,7 @@ namespace ATBM_07
                 listViewRoles_Role2.CheckBoxes = true;
                 listViewRoles_Role2.Columns.Add("Role", 300);
 
-                foreach (var role in RoleService.GetApplicationRoles())
+                foreach (var role in RoleService.GetAllRoles())
                 {
                     var item = new ListViewItem(role);
                     listViewRoles_Role2.Items.Add(item);
@@ -115,16 +115,11 @@ namespace ATBM_07
             {
                 var systemPrivs = PrivilegeService.GetSystemPrivileges();
                 comboBoxPrivs_Role.Items.AddRange(systemPrivs.ToArray());
-
-                checkBoxWithGrant_Role.Enabled = false;
-                checkBoxWithGrant_Role.Checked = false;
             }
             else if (selectedType == "Object")
             {
                 var objectPrivs = PrivilegeService.GetObjectPrivileges();
                 comboBoxPrivs_Role.Items.AddRange(objectPrivs.ToArray());
-
-                checkBoxWithGrant_Role.Enabled = true;
             }
 
             if (comboBoxPrivs_Role.Items.Count > 0)
@@ -200,25 +195,42 @@ namespace ATBM_07
                 comboBoxColumns_Role.Items.Clear();
                 comboBoxColumns_Role.Text = "";
                 comboBoxColumns_Role.Enabled = false;
-                checkBoxWithGrant_Role.Checked = false;
-                checkBoxWithGrant_Role.Enabled = false;
             }
         }
 
         private void buttonGrantPriv_Role_Click(object sender, EventArgs e)
         {
-            var selectedType = comboBoxPrivTypes_Role.SelectedItem?.ToString();
-            var selectedPriv = comboBoxPrivs_Role.SelectedItem?.ToString();
-            var selectedObject = comboBoxObjects_Role.SelectedItem?.ToString();
-
-            if (string.IsNullOrEmpty(selectedType))
+            if (listViewRoles_Role2.CheckedItems.Count != 1)
             {
-                MessageBox.Show("No priv is chosen.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select exactly one role to grant privilege.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // All required inputs are valid — proceed with granting logic here
-            MessageBox.Show("Privilege can now be granted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var selectedRole = listViewRoles_Role2.CheckedItems[0].Text;
+            var selectedType = comboBoxPrivTypes_Role.SelectedItem?.ToString();
+            var selectedPriv = comboBoxPrivs_Role.SelectedItem?.ToString();
+            var selectedObject = comboBoxObjects_Role.SelectedItem?.ToString();
+            var selectedColumn = comboBoxColumns_Role.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(selectedPriv) || string.IsNullOrEmpty(selectedType))
+            {
+                MessageBox.Show("No privs is chosen!");
+                return;
+            }
+
+            try
+            {
+                RoleService.GrantPrivilegeToRole(selectedRole, selectedPriv, selectedType,
+                selectedType == "Object" ? selectedObject : null,
+                comboBoxColumns_Role.Enabled ? selectedColumn : null);
+
+                MessageBox.Show("Privilege granted successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
+
     }
 }

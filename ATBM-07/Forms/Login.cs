@@ -2,7 +2,6 @@ using System;
 using System.Windows.Forms;
 using ATBM_07.Forms;
 using ATBM_07.Helpers;
-using ATBM_07.Services;
 
 namespace ATBM_07
 {
@@ -21,51 +20,44 @@ namespace ATBM_07
 
             if (DatabaseHelper.Connect(username, password))
             {
-                string role = DatabaseHelper.GetCurrentRole();
+                string role = DatabaseHelper.GetRoleFromVaitroFunction(); // GỌI SP MỚI
 
-                this.Hide();
-          
-                if (role == "PDB_DBA" || username.Equals("admin", StringComparison.OrdinalIgnoreCase))
+                if (string.IsNullOrEmpty(role))
                 {
-                    new DashBoard_Admin().Show(); 
+                    MessageBox.Show("Không xác định được vai trò.");
                     return;
                 }
+
+                this.Hide();
 
                 switch (role)
                 {
                     case "SV":
-                        new DashBoard_SV().Show();
-                        break;
+                        new DashBoard_SV().Show(); break;
                     case "GV":
-                        new DashBoard_GV().Show();
-                        break;
-                    case "NVPDT":
-                        new DashBoard_NVPDT().Show();
-                        break;
-                    case "TRGDV":
-                        new DashBoard_TRGDV().Show();
-                        break;
+                        new DashBoard_GV().Show(); break;
                     case "NVCB":
-                        new DashBoard_NVCB__().Show();
-                        break;
-                    case "NVCTSV":
-                        new DashBoard_NVCTSV().Show();
-                        break;
+                        new DashBoard_NVCB().Show(); break;
+                    case "NVPDT":
+                        new DashBoard_NVPDT().Show(); break;
                     case "NVPKT":
-                        new DashBoard_NVPTK().Show();
-                        break;
+                        new DashBoard_NVPTK().Show(); break;
+                    case "NVCTSV":
+                        new DashBoard_NVCTSV().Show(); break;
+                    case "TRGDV":
+                        new DashBoard_TRGDV().Show(); break;
                     case "NVTCHC":
-                        new DashBoard_NVTCHC().Show();
-                        break;
+                        new DashBoard_NVTCHC().Show(); break;
+                    case "ADMIN":
+                        new DashBoard_Admin().Show(); break;
                     default:
-                        MessageBox.Show("No roles.");
-                        this.Show();
-                        break;
+                        MessageBox.Show("Vai trò không hợp lệ: " + role);
+                        this.Show(); break;
                 }
             }
             else
             {
-                MessageBox.Show("Connection failed. Please try again.");
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.");
             }
         }
     }

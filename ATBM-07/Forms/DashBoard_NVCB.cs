@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ATBM_07.Forms
 {
-    public partial class DashBoard_NVCB__ : Form
+    public partial class DashBoard_NVCB : Form
     {
-        public DashBoard_NVCB__()
+        public DashBoard_NVCB()
         {
             InitializeComponent();
         }

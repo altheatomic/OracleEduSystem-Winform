@@ -55,6 +55,42 @@ namespace ATBM_07.Services
             return roles;
         }
 
+        public static List<string> GetAllRoles()
+        {
+            var roles = new List<string>();
+
+            using (var cmd = new OracleCommand("get_all_roles", DatabaseHelper.Connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("p_roles", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                        roles.Add(reader.GetString(0));
+                }
+            }
+
+            return roles;
+        }
+
+        public static void GrantPrivilegeToRole(string role, string priv, string type, string objName, string column)
+        {
+            using (var cmd = new OracleCommand("grant_priv_to_role", DatabaseHelper.Connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("p_role", OracleDbType.Varchar2).Value = role;
+                cmd.Parameters.Add("p_priv", OracleDbType.Varchar2).Value = priv;
+                cmd.Parameters.Add("p_type", OracleDbType.Varchar2).Value = type;
+                cmd.Parameters.Add("p_obj_name", OracleDbType.Varchar2).Value = objName ?? (object)DBNull.Value;
+                cmd.Parameters.Add("p_column", OracleDbType.Varchar2).Value = column ?? (object)DBNull.Value;
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
+
         public static List<string> GetUsersByRole(string role)
         {
             var users = new List<string>();

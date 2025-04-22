@@ -1,6 +1,6 @@
 ﻿namespace ATBM_07.Forms
 {
-    partial class DashBoard_NVCB__
+    partial class DashBoard_NVCB
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "DashBoard_NVCB__";
+            this.Text = "DashBoard_NVCB";
         }
 
         #endregion

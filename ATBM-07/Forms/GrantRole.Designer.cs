@@ -39,7 +39,6 @@
             label9 = new Label();
             buttonRevoke_Role = new Button();
             buttonGrantPriv_Role = new Button();
-            checkBoxWithGrant_Role = new CheckBox();
             comboBoxColumns_Role = new ComboBox();
             labelColumn_Role = new Label();
             comboBoxPrivTypes_Role = new ComboBox();
@@ -188,19 +187,7 @@
             buttonGrantPriv_Role.TabIndex = 97;
             buttonGrantPriv_Role.Text = "GRANT PRIV";
             buttonGrantPriv_Role.UseVisualStyleBackColor = false;
-            buttonGrantPriv_Role.Click += this.buttonGrantPriv_Role_Click;
-            // 
-            // checkBoxWithGrant_Role
-            // 
-            checkBoxWithGrant_Role.AutoSize = true;
-            checkBoxWithGrant_Role.ForeColor = Color.Teal;
-            checkBoxWithGrant_Role.Location = new Point(1326, 595);
-            checkBoxWithGrant_Role.Margin = new Padding(4);
-            checkBoxWithGrant_Role.Name = "checkBoxWithGrant_Role";
-            checkBoxWithGrant_Role.Size = new Size(368, 49);
-            checkBoxWithGrant_Role.TabIndex = 96;
-            checkBoxWithGrant_Role.Text = "WITH GRANT OPTION";
-            checkBoxWithGrant_Role.UseVisualStyleBackColor = true;
+            buttonGrantPriv_Role.Click += buttonGrantPriv_Role_Click;
             // 
             // comboBoxColumns_Role
             // 
@@ -294,7 +281,6 @@
             ClientSize = new Size(1894, 1009);
             Controls.Add(buttonRevoke_Role);
             Controls.Add(buttonGrantPriv_Role);
-            Controls.Add(checkBoxWithGrant_Role);
             Controls.Add(comboBoxColumns_Role);
             Controls.Add(labelColumn_Role);
             Controls.Add(comboBoxPrivTypes_Role);

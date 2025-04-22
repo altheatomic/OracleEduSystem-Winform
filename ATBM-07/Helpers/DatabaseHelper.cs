@@ -22,22 +22,22 @@ namespace ATBM_07.Helpers
                 return false;
             }
         }
-
-        public static string GetCurrentRole()
+        public static string GetRoleFromVaitroFunction()
         {
             try
             {
-                using (var cmd = new OracleCommand("SELECT get_vaitro FROM dual", Connection))
+                using (var cmd = new OracleCommand("SELECT user_admin.get_vaitro FROM dual", Connection))
                 {
-                    var role = cmd.ExecuteScalar()?.ToString();
-                    return string.IsNullOrEmpty(role) ? "PDB_DBA" : role; 
+                    return cmd.ExecuteScalar()?.ToString();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                return "PDB_DBA";
+                MessageBox.Show("Không thể lấy vai trò (get_vaitro): " + ex.Message);
+                return null;
             }
         }
+
 
 
     }

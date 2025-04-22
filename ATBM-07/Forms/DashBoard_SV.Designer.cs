@@ -28,345 +28,346 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            label2 = new Label();
-            textBox3 = new TextBox();
-            label3 = new Label();
-            textBox4 = new TextBox();
-            label4 = new Label();
-            textBox5 = new TextBox();
-            label5 = new Label();
-            textBox7 = new TextBox();
-            label7 = new Label();
-            textBox8 = new TextBox();
-            label8 = new Label();
-            textBox9 = new TextBox();
-            label9 = new Label();
-            label6 = new Label();
+            lbMaSV = new Label();
+            txtMaSV = new TextBox();
+            txtPhai = new TextBox();
+            lbPhai = new Label();
+            txtDiaChi = new TextBox();
+            lbDiaChi = new Label();
+            txtHoTen = new TextBox();
+            lbHoTen = new Label();
+            txtNgSinh = new TextBox();
+            lbNgSinh = new Label();
+            txtKhoa = new TextBox();
+            lbKhoa = new Label();
+            txtTinhTrang = new TextBox();
+            lbTrangThai = new Label();
+            txtDT = new TextBox();
+            lbDT = new Label();
+            lbSTUDENTINFO = new Label();
             groupBox1 = new GroupBox();
-            btnUsers = new Button();
-            label10 = new Label();
+            btnStudentUpdateStudent = new Button();
+            lbREGISTERFORCOURSES = new Label();
             dataGridView1 = new DataGridView();
-            button1 = new Button();
-            textBox6 = new TextBox();
+            btnSudentInsertCourse = new Button();
+            txtMaMM = new TextBox();
             label11 = new Label();
-            button2 = new Button();
+            btnSudentDeleteCourse = new Button();
             groupBox2 = new GroupBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // lbMaSV
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F);
-            label1.ForeColor = Color.Teal;
-            label1.Location = new Point(63, 58);
-            label1.Name = "label1";
-            label1.Size = new Size(53, 21);
-            label1.TabIndex = 1;
-            label1.Text = "MASV";
-            label1.TextAlign = ContentAlignment.TopCenter;
-            label1.Click += label1_Click;
+            lbMaSV.AutoSize = true;
+            lbMaSV.Font = new Font("Segoe UI", 12F);
+            lbMaSV.ForeColor = Color.Teal;
+            lbMaSV.Location = new Point(83, 60);
+            lbMaSV.Name = "lbMaSV";
+            lbMaSV.Size = new Size(53, 21);
+            lbMaSV.TabIndex = 1;
+            lbMaSV.Text = "MASV";
+            lbMaSV.TextAlign = ContentAlignment.TopCenter;
             // 
-            // textBox1
+            // txtMaSV
             // 
-            textBox1.BackColor = SystemColors.Control;
-            textBox1.Font = new Font("Segoe UI", 12F);
-            textBox1.Location = new Point(127, 55);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(120, 29);
-            textBox1.TabIndex = 2;
+            txtMaSV.BackColor = SystemColors.Control;
+            txtMaSV.Font = new Font("Segoe UI", 12F);
+            txtMaSV.Location = new Point(147, 57);
+            txtMaSV.Name = "txtMaSV";
+            txtMaSV.ReadOnly = true;
+            txtMaSV.Size = new Size(120, 29);
+            txtMaSV.TabIndex = 2;
             // 
-            // textBox2
+            // txtPhai
             // 
-            textBox2.BackColor = SystemColors.Control;
-            textBox2.Font = new Font("Segoe UI", 12F);
-            textBox2.Location = new Point(127, 99);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(120, 29);
-            textBox2.TabIndex = 4;
+            txtPhai.BackColor = SystemColors.Control;
+            txtPhai.Font = new Font("Segoe UI", 12F);
+            txtPhai.Location = new Point(147, 101);
+            txtPhai.Name = "txtPhai";
+            txtPhai.ReadOnly = true;
+            txtPhai.Size = new Size(120, 29);
+            txtPhai.TabIndex = 4;
             // 
-            // label2
+            // lbPhai
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F);
-            label2.ForeColor = Color.Teal;
-            label2.Location = new Point(76, 102);
-            label2.Name = "label2";
-            label2.Size = new Size(40, 21);
-            label2.TabIndex = 3;
-            label2.Text = "Phái";
-            label2.TextAlign = ContentAlignment.TopCenter;
+            lbPhai.AutoSize = true;
+            lbPhai.Font = new Font("Segoe UI", 12F);
+            lbPhai.ForeColor = Color.Teal;
+            lbPhai.Location = new Point(75, 104);
+            lbPhai.Name = "lbPhai";
+            lbPhai.Size = new Size(61, 21);
+            lbPhai.TabIndex = 3;
+            lbPhai.Text = "Gender";
+            lbPhai.TextAlign = ContentAlignment.TopCenter;
             // 
-            // textBox3
+            // txtDiaChi
             // 
-            textBox3.Font = new Font("Segoe UI", 12F);
-            textBox3.Location = new Point(127, 148);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(467, 29);
-            textBox3.TabIndex = 6;
+            txtDiaChi.Font = new Font("Segoe UI", 12F);
+            txtDiaChi.Location = new Point(147, 150);
+            txtDiaChi.Name = "txtDiaChi";
+            txtDiaChi.Size = new Size(467, 29);
+            txtDiaChi.TabIndex = 6;
             // 
-            // label3
+            // lbDiaChi
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F);
-            label3.ForeColor = Color.Teal;
-            label3.Location = new Point(59, 151);
-            label3.Name = "label3";
-            label3.Size = new Size(57, 21);
-            label3.TabIndex = 5;
-            label3.Text = "Địa chỉ";
-            label3.TextAlign = ContentAlignment.TopCenter;
+            lbDiaChi.AutoSize = true;
+            lbDiaChi.Font = new Font("Segoe UI", 12F);
+            lbDiaChi.ForeColor = Color.Teal;
+            lbDiaChi.Location = new Point(70, 153);
+            lbDiaChi.Name = "lbDiaChi";
+            lbDiaChi.Size = new Size(66, 21);
+            lbDiaChi.TabIndex = 5;
+            lbDiaChi.Text = "Address";
+            lbDiaChi.TextAlign = ContentAlignment.TopCenter;
             // 
-            // textBox4
+            // txtHoTen
             // 
-            textBox4.BackColor = SystemColors.Control;
-            textBox4.Font = new Font("Segoe UI", 12F);
-            textBox4.Location = new Point(474, 55);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new Size(120, 29);
-            textBox4.TabIndex = 8;
+            txtHoTen.BackColor = SystemColors.Control;
+            txtHoTen.Font = new Font("Segoe UI", 12F);
+            txtHoTen.Location = new Point(494, 57);
+            txtHoTen.Name = "txtHoTen";
+            txtHoTen.ReadOnly = true;
+            txtHoTen.Size = new Size(120, 29);
+            txtHoTen.TabIndex = 8;
             // 
-            // label4
+            // lbHoTen
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F);
-            label4.ForeColor = Color.Teal;
-            label4.Location = new Point(406, 58);
-            label4.Name = "label4";
-            label4.Size = new Size(56, 21);
-            label4.TabIndex = 7;
-            label4.Text = "Họ tên";
-            label4.TextAlign = ContentAlignment.TopCenter;
-            label4.Click += label4_Click;
+            lbHoTen.AutoSize = true;
+            lbHoTen.Font = new Font("Segoe UI", 12F);
+            lbHoTen.ForeColor = Color.Teal;
+            lbHoTen.Location = new Point(399, 60);
+            lbHoTen.Name = "lbHoTen";
+            lbHoTen.Size = new Size(72, 27);
+            lbHoTen.TabIndex = 7;
+            lbHoTen.Text = "Fullname";
+            lbHoTen.TextAlign = ContentAlignment.TopCenter;
+            lbHoTen.UseCompatibleTextRendering = true;
             // 
-            // textBox5
+            // txtNgSinh
             // 
-            textBox5.BackColor = SystemColors.Control;
-            textBox5.Font = new Font("Segoe UI", 12F);
-            textBox5.Location = new Point(474, 99);
-            textBox5.Name = "textBox5";
-            textBox5.ReadOnly = true;
-            textBox5.Size = new Size(120, 29);
-            textBox5.TabIndex = 10;
+            txtNgSinh.BackColor = SystemColors.Control;
+            txtNgSinh.Font = new Font("Segoe UI", 12F);
+            txtNgSinh.Location = new Point(494, 101);
+            txtNgSinh.Name = "txtNgSinh";
+            txtNgSinh.ReadOnly = true;
+            txtNgSinh.Size = new Size(120, 29);
+            txtNgSinh.TabIndex = 10;
             // 
-            // label5
+            // lbNgSinh
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F);
-            label5.ForeColor = Color.Teal;
-            label5.Location = new Point(382, 102);
-            label5.Name = "label5";
-            label5.Size = new Size(80, 21);
-            label5.TabIndex = 9;
-            label5.Text = "Ngày sinh";
-            label5.TextAlign = ContentAlignment.TopCenter;
+            lbNgSinh.AutoSize = true;
+            lbNgSinh.Font = new Font("Segoe UI", 12F);
+            lbNgSinh.ForeColor = Color.Teal;
+            lbNgSinh.Location = new Point(385, 104);
+            lbNgSinh.Name = "lbNgSinh";
+            lbNgSinh.Size = new Size(97, 21);
+            lbNgSinh.TabIndex = 9;
+            lbNgSinh.Text = "Date of birth";
+            lbNgSinh.TextAlign = ContentAlignment.TopCenter;
             // 
-            // textBox7
+            // txtKhoa
             // 
-            textBox7.BackColor = SystemColors.Control;
-            textBox7.Font = new Font("Segoe UI", 12F);
-            textBox7.Location = new Point(474, 203);
-            textBox7.Name = "textBox7";
-            textBox7.ReadOnly = true;
-            textBox7.Size = new Size(120, 29);
-            textBox7.TabIndex = 16;
+            txtKhoa.BackColor = SystemColors.Control;
+            txtKhoa.Font = new Font("Segoe UI", 12F);
+            txtKhoa.Location = new Point(494, 205);
+            txtKhoa.Name = "txtKhoa";
+            txtKhoa.ReadOnly = true;
+            txtKhoa.Size = new Size(120, 29);
+            txtKhoa.TabIndex = 16;
             // 
-            // label7
+            // lbKhoa
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F);
-            label7.ForeColor = Color.Teal;
-            label7.Location = new Point(417, 206);
-            label7.Name = "label7";
-            label7.Size = new Size(45, 21);
-            label7.TabIndex = 15;
-            label7.Text = "Khoa";
-            label7.TextAlign = ContentAlignment.TopCenter;
-            label7.Click += label7_Click;
+            lbKhoa.AutoSize = true;
+            lbKhoa.Font = new Font("Segoe UI", 12F);
+            lbKhoa.ForeColor = Color.Teal;
+            lbKhoa.Location = new Point(389, 208);
+            lbKhoa.Name = "lbKhoa";
+            lbKhoa.Size = new Size(93, 21);
+            lbKhoa.TabIndex = 15;
+            lbKhoa.Text = "Department";
+            lbKhoa.TextAlign = ContentAlignment.TopCenter;
             // 
-            // textBox8
+            // txtTinhTrang
             // 
-            textBox8.BackColor = SystemColors.Control;
-            textBox8.Font = new Font("Segoe UI", 12F);
-            textBox8.Location = new Point(127, 247);
-            textBox8.Name = "textBox8";
-            textBox8.ReadOnly = true;
-            textBox8.Size = new Size(120, 29);
-            textBox8.TabIndex = 14;
+            txtTinhTrang.BackColor = SystemColors.Control;
+            txtTinhTrang.Font = new Font("Segoe UI", 12F);
+            txtTinhTrang.Location = new Point(147, 249);
+            txtTinhTrang.Name = "txtTinhTrang";
+            txtTinhTrang.ReadOnly = true;
+            txtTinhTrang.Size = new Size(120, 29);
+            txtTinhTrang.TabIndex = 14;
             // 
-            // label8
+            // lbTrangThai
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F);
-            label8.ForeColor = Color.Teal;
-            label8.Location = new Point(35, 250);
-            label8.Name = "label8";
-            label8.Size = new Size(81, 21);
-            label8.TabIndex = 13;
-            label8.Text = "Tình trạng";
-            label8.TextAlign = ContentAlignment.TopCenter;
+            lbTrangThai.AutoSize = true;
+            lbTrangThai.Font = new Font("Segoe UI", 12F);
+            lbTrangThai.ForeColor = Color.Teal;
+            lbTrangThai.Location = new Point(84, 252);
+            lbTrangThai.Name = "lbTrangThai";
+            lbTrangThai.Size = new Size(52, 21);
+            lbTrangThai.TabIndex = 13;
+            lbTrangThai.Text = "Status";
+            lbTrangThai.TextAlign = ContentAlignment.TopCenter;
             // 
-            // textBox9
+            // txtDT
             // 
-            textBox9.Font = new Font("Segoe UI", 12F);
-            textBox9.Location = new Point(127, 203);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(120, 29);
-            textBox9.TabIndex = 12;
+            txtDT.Font = new Font("Segoe UI", 12F);
+            txtDT.Location = new Point(147, 205);
+            txtDT.Name = "txtDT";
+            txtDT.Size = new Size(120, 29);
+            txtDT.TabIndex = 12;
             // 
-            // label9
+            // lbDT
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 12F);
-            label9.ForeColor = Color.Teal;
-            label9.Location = new Point(35, 206);
-            label9.Name = "label9";
-            label9.Size = new Size(81, 21);
-            label9.TabIndex = 11;
-            label9.Text = "Điện thoại";
-            label9.TextAlign = ContentAlignment.TopCenter;
+            lbDT.AutoSize = true;
+            lbDT.Font = new Font("Segoe UI", 12F);
+            lbDT.ForeColor = Color.Teal;
+            lbDT.Location = new Point(23, 208);
+            lbDT.Name = "lbDT";
+            lbDT.Size = new Size(113, 21);
+            lbDT.TabIndex = 11;
+            lbDT.Text = "Phone number";
+            lbDT.TextAlign = ContentAlignment.TopCenter;
             // 
-            // label6
+            // lbSTUDENTINFO
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F);
-            label6.ForeColor = Color.Teal;
-            label6.Location = new Point(282, 29);
-            label6.Name = "label6";
-            label6.Size = new Size(170, 21);
-            label6.TabIndex = 17;
-            label6.Text = "THÔNG TIN SINH VIÊN";
-            label6.TextAlign = ContentAlignment.TopCenter;
+            lbSTUDENTINFO.AutoSize = true;
+            lbSTUDENTINFO.Font = new Font("Segoe UI", 12F);
+            lbSTUDENTINFO.ForeColor = Color.Teal;
+            lbSTUDENTINFO.Location = new Point(324, 35);
+            lbSTUDENTINFO.Name = "lbSTUDENTINFO";
+            lbSTUDENTINFO.Size = new Size(128, 21);
+            lbSTUDENTINFO.TabIndex = 17;
+            lbSTUDENTINFO.Text = "STUDENT's INFO";
+            lbSTUDENTINFO.TextAlign = ContentAlignment.TopCenter;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(btnUsers);
-            groupBox1.Controls.Add(textBox4);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(textBox7);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(textBox8);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(textBox9);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(textBox5);
-            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(btnStudentUpdateStudent);
+            groupBox1.Controls.Add(txtHoTen);
+            groupBox1.Controls.Add(lbMaSV);
+            groupBox1.Controls.Add(txtKhoa);
+            groupBox1.Controls.Add(txtMaSV);
+            groupBox1.Controls.Add(lbKhoa);
+            groupBox1.Controls.Add(lbPhai);
+            groupBox1.Controls.Add(txtTinhTrang);
+            groupBox1.Controls.Add(txtPhai);
+            groupBox1.Controls.Add(lbTrangThai);
+            groupBox1.Controls.Add(lbDiaChi);
+            groupBox1.Controls.Add(txtDT);
+            groupBox1.Controls.Add(txtDiaChi);
+            groupBox1.Controls.Add(lbDT);
+            groupBox1.Controls.Add(lbHoTen);
+            groupBox1.Controls.Add(txtNgSinh);
+            groupBox1.Controls.Add(lbNgSinh);
             groupBox1.Location = new Point(39, 73);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(643, 355);
+            groupBox1.Size = new Size(770, 355);
             groupBox1.TabIndex = 18;
             groupBox1.TabStop = false;
             // 
-            // btnUsers
+            // btnStudentUpdateStudent
             // 
-            btnUsers.AutoSize = true;
-            btnUsers.FlatAppearance.BorderColor = Color.Teal;
-            btnUsers.FlatAppearance.MouseDownBackColor = Color.DarkSlateGray;
-            btnUsers.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 255, 128);
-            btnUsers.FlatStyle = FlatStyle.Flat;
-            btnUsers.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnUsers.ForeColor = Color.Teal;
-            btnUsers.Location = new Point(254, 305);
-            btnUsers.Name = "btnUsers";
-            btnUsers.Size = new Size(150, 33);
-            btnUsers.TabIndex = 92;
-            btnUsers.Text = "Cập nhật";
-            btnUsers.UseVisualStyleBackColor = true;
-            btnUsers.Click += btnUsers_Click;
+            btnStudentUpdateStudent.AutoSize = true;
+            btnStudentUpdateStudent.FlatAppearance.BorderColor = Color.Teal;
+            btnStudentUpdateStudent.FlatAppearance.MouseDownBackColor = Color.DarkSlateGray;
+            btnStudentUpdateStudent.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 255, 128);
+            btnStudentUpdateStudent.FlatStyle = FlatStyle.Flat;
+            btnStudentUpdateStudent.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnStudentUpdateStudent.ForeColor = Color.Teal;
+            btnStudentUpdateStudent.Location = new Point(263, 305);
+            btnStudentUpdateStudent.Name = "btnStudentUpdateStudent";
+            btnStudentUpdateStudent.Size = new Size(150, 33);
+            btnStudentUpdateStudent.TabIndex = 92;
+            btnStudentUpdateStudent.Text = "Update";
+            btnStudentUpdateStudent.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // lbREGISTERFORCOURSES
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 12F);
-            label10.ForeColor = Color.Teal;
-            label10.Location = new Point(293, 451);
-            label10.Name = "label10";
-            label10.Size = new Size(159, 21);
-            label10.TabIndex = 19;
-            label10.Text = "ĐĂNG KÝ HỌC PHẦN";
-            label10.TextAlign = ContentAlignment.TopCenter;
+            lbREGISTERFORCOURSES.AutoSize = true;
+            lbREGISTERFORCOURSES.Font = new Font("Segoe UI", 12F);
+            lbREGISTERFORCOURSES.ForeColor = Color.Teal;
+            lbREGISTERFORCOURSES.Location = new Point(372, 441);
+            lbREGISTERFORCOURSES.Name = "lbREGISTERFORCOURSES";
+            lbREGISTERFORCOURSES.Size = new Size(185, 21);
+            lbREGISTERFORCOURSES.TabIndex = 19;
+            lbREGISTERFORCOURSES.Text = "REGISTER FOR COURSES";
+            lbREGISTERFORCOURSES.TextAlign = ContentAlignment.TopCenter;
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(35, 83);
+            dataGridView1.Location = new Point(23, 33);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(240, 150);
+            dataGridView1.ScrollBars = ScrollBars.Vertical;
+            dataGridView1.Size = new Size(483, 271);
             dataGridView1.TabIndex = 20;
             // 
-            // button1
+            // btnSudentInsertCourse
             // 
-            button1.AutoSize = true;
-            button1.FlatAppearance.BorderColor = Color.Teal;
-            button1.FlatAppearance.MouseDownBackColor = Color.DarkSlateGray;
-            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 255, 128);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Teal;
-            button1.Location = new Point(448, 617);
-            button1.Name = "button1";
-            button1.Size = new Size(64, 33);
-            button1.TabIndex = 93;
-            button1.Text = "Thêm";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_3;
+            btnSudentInsertCourse.AutoSize = true;
+            btnSudentInsertCourse.FlatAppearance.BorderColor = Color.Teal;
+            btnSudentInsertCourse.FlatAppearance.MouseDownBackColor = Color.DarkSlateGray;
+            btnSudentInsertCourse.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 255, 128);
+            btnSudentInsertCourse.FlatStyle = FlatStyle.Flat;
+            btnSudentInsertCourse.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSudentInsertCourse.ForeColor = Color.Teal;
+            btnSudentInsertCourse.Location = new Point(593, 553);
+            btnSudentInsertCourse.Name = "btnSudentInsertCourse";
+            btnSudentInsertCourse.Size = new Size(64, 33);
+            btnSudentInsertCourse.TabIndex = 93;
+            btnSudentInsertCourse.Text = "Insert";
+            btnSudentInsertCourse.UseVisualStyleBackColor = true;
+            btnSudentInsertCourse.Click += btnSudentInsertCourse_Click;
             // 
-            // textBox6
+            // txtMaMM
             // 
-            textBox6.Font = new Font("Segoe UI", 12F);
-            textBox6.Location = new Point(522, 564);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(120, 29);
-            textBox6.TabIndex = 94;
+            txtMaMM.Font = new Font("Segoe UI", 12F);
+            txtMaMM.Location = new Point(667, 500);
+            txtMaMM.Name = "txtMaMM";
+            txtMaMM.Size = new Size(120, 29);
+            txtMaMM.TabIndex = 94;
             // 
             // label11
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 12F);
             label11.ForeColor = Color.Teal;
-            label11.Location = new Point(448, 567);
+            label11.Location = new Point(593, 503);
             label11.Name = "label11";
             label11.Size = new Size(62, 21);
             label11.TabIndex = 93;
             label11.Text = "MAMM";
             label11.TextAlign = ContentAlignment.TopCenter;
             // 
-            // button2
+            // btnSudentDeleteCourse
             // 
-            button2.AutoSize = true;
-            button2.FlatAppearance.BorderColor = Color.Teal;
-            button2.FlatAppearance.MouseDownBackColor = Color.DarkSlateGray;
-            button2.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 255, 128);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.Teal;
-            button2.Location = new Point(448, 727);
-            button2.Name = "button2";
-            button2.Size = new Size(64, 33);
-            button2.TabIndex = 95;
-            button2.Text = "Xóa";
-            button2.UseVisualStyleBackColor = true;
+            btnSudentDeleteCourse.AutoSize = true;
+            btnSudentDeleteCourse.FlatAppearance.BorderColor = Color.Teal;
+            btnSudentDeleteCourse.FlatAppearance.MouseDownBackColor = Color.DarkSlateGray;
+            btnSudentDeleteCourse.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 255, 128);
+            btnSudentDeleteCourse.FlatStyle = FlatStyle.Flat;
+            btnSudentDeleteCourse.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSudentDeleteCourse.ForeColor = Color.Teal;
+            btnSudentDeleteCourse.Location = new Point(593, 663);
+            btnSudentDeleteCourse.Name = "btnSudentDeleteCourse";
+            btnSudentDeleteCourse.Size = new Size(66, 33);
+            btnSudentDeleteCourse.TabIndex = 95;
+            btnSudentDeleteCourse.Text = "Delete";
+            btnSudentDeleteCourse.UseVisualStyleBackColor = true;
+            btnSudentDeleteCourse.Click += btnSudentDeleteCourse_Click;
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(dataGridView1);
-            groupBox2.Location = new Point(39, 493);
+            groupBox2.Location = new Point(39, 465);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(643, 366);
+            groupBox2.Size = new Size(770, 326);
             groupBox2.TabIndex = 96;
             groupBox2.TabStop = false;
             // 
@@ -375,17 +376,16 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1894, 1009);
-            Controls.Add(button2);
-            Controls.Add(textBox6);
+            Controls.Add(btnSudentDeleteCourse);
+            Controls.Add(txtMaMM);
             Controls.Add(label11);
-            Controls.Add(button1);
-            Controls.Add(label10);
+            Controls.Add(btnSudentInsertCourse);
+            Controls.Add(lbREGISTERFORCOURSES);
             Controls.Add(groupBox1);
-            Controls.Add(label6);
+            Controls.Add(lbSTUDENTINFO);
             Controls.Add(groupBox2);
             Name = "DashBoard_SV";
             Text = "SV";
-            Load += DashBoard_SV_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -395,31 +395,31 @@
         }
 
         #endregion
-        private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Label label2;
-        private TextBox textBox3;
-        private Label label3;
-        private TextBox textBox4;
-        private Label label4;
-        private TextBox textBox5;
-        private Label label5;
-        private TextBox textBox7;
-        private Label label7;
-        private TextBox textBox8;
-        private Label label8;
-        private TextBox textBox9;
-        private Label label9;
-        private Label label6;
+        private Label lbMaSV;
+        private TextBox txtMaSV;
+        private TextBox txtPhai;
+        private Label lbPhai;
+        private TextBox txtDiaChi;
+        private Label lbDiaChi;
+        private TextBox txtHoTen;
+        private Label lbHoTen;
+        private TextBox txtNgSinh;
+        private Label lbNgSinh;
+        private TextBox txtKhoa;
+        private Label lbKhoa;
+        private TextBox txtTinhTrang;
+        private Label lbTrangThai;
+        private TextBox txtDT;
+        private Label lbDT;
+        private Label lbSTUDENTINFO;
         private GroupBox groupBox1;
-        private Button btnUsers;
-        private Label label10;
+        private Button btnStudentUpdateStudent;
+        private Label lbREGISTERFORCOURSES;
         private DataGridView dataGridView1;
-        private Button button1;
-        private TextBox textBox6;
+        private Button btnSudentInsertCourse;
+        private TextBox txtMaMM;
         private Label label11;
-        private Button button2;
+        private Button btnSudentDeleteCourse;
         private GroupBox groupBox2;
     }
 }

@@ -14,6 +14,7 @@ namespace ATBM_07.Helpers
             {
                 Connection = new OracleConnection(connStr);
                 Connection.Open();
+                MessageBox.Show("Connection success:");
                 return true;
             }
             catch (Exception ex)

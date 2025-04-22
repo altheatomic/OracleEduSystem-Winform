@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ATBM_07.Services;
+using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,66 +17,81 @@ namespace ATBM_07.Forms
         public DashBoard_SV()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-
+            this.Load += DashBoard_SV_Load;
         }
 
         private void DashBoard_SV_Load(object sender, EventArgs e)
         {
-
+            LoadDataToGrid();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void LoadDataToGrid()
         {
+            try
+            {
+                var dt = SVService.GetDangKy_SV();
+                dataGridView1.DataSource = dt;
 
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+
+                dataGridView1.Columns["MASV"].Width = 80;
+                dataGridView1.Columns["MAMM"].Width = 80;
+                dataGridView1.Columns["DIEMTH"].Width = 65;
+                dataGridView1.Columns["DIEMQT"].Width = 65;
+                dataGridView1.Columns["DIEMCK"].Width = 65;
+                dataGridView1.Columns["DIEMTK"].Width = 65;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+            }
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void btnSudentInsertCourse_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string maMoMon = txtMaMM.Text.Trim();
 
+                if (!string.IsNullOrEmpty(maMoMon))
+                {
+                    SVService.AddDataTableFromProcedure(maMoMon);
+                    MessageBox.Show("Đăng ký môn học thành công!");
+                    dataGridView1.DataSource = SVService.GetDangKy_SV();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập mã môn học.");
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void btnSudentDeleteCourse_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int i;
+                i = dataGridView1.CurrentRow.Index;
 
-        }
+                string maMoMon;
+                maMoMon = dataGridView1.Rows[i].Cells[0].Value.ToString();
 
-        private void btnUsers_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_3(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
+                if (!string.IsNullOrEmpty(maMoMon))
+                {
+                    SVService.DeleteDataTableFromProcedure(maMoMon);
+                    MessageBox.Show("Hủy đăng ký môn học thành công!");
+                    dataGridView1.DataSource = SVService.GetDangKy_SV();
+                    this.Load += DashBoard_SV_Load;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
     }
 }

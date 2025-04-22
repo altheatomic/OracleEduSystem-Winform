@@ -39,6 +39,8 @@
             textBoxNewRole = new TextBox();
             labelNewRole = new Label();
             buttonCreateRole = new Button();
+            listViewPrivs_Role = new ListView();
+            buttonRevoke_Role = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,7 +50,7 @@
             buttonDelete_Role.BackColor = Color.Teal;
             buttonDelete_Role.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonDelete_Role.ForeColor = Color.White;
-            buttonDelete_Role.Location = new Point(707, 748);
+            buttonDelete_Role.Location = new Point(952, 485);
             buttonDelete_Role.Name = "buttonDelete_Role";
             buttonDelete_Role.Size = new Size(232, 65);
             buttonDelete_Role.TabIndex = 24;
@@ -61,7 +63,7 @@
             labelSearchRole_Role1.BackColor = Color.White;
             labelSearchRole_Role1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelSearchRole_Role1.ForeColor = Color.Teal;
-            labelSearchRole_Role1.Location = new Point(130, 276);
+            labelSearchRole_Role1.Location = new Point(183, 303);
             labelSearchRole_Role1.Name = "labelSearchRole_Role1";
             labelSearchRole_Role1.Size = new Size(226, 45);
             labelSearchRole_Role1.TabIndex = 23;
@@ -69,16 +71,16 @@
             // 
             // listViewRoles_Role1
             // 
-            listViewRoles_Role1.Location = new Point(401, 360);
+            listViewRoles_Role1.Location = new Point(183, 463);
             listViewRoles_Role1.Name = "listViewRoles_Role1";
-            listViewRoles_Role1.Size = new Size(574, 317);
+            listViewRoles_Role1.Size = new Size(574, 449);
             listViewRoles_Role1.TabIndex = 22;
             listViewRoles_Role1.UseCompatibleStateImageBehavior = false;
             // 
             // comboBoxRoles_Role1
             // 
             comboBoxRoles_Role1.FormattingEnabled = true;
-            comboBoxRoles_Role1.Location = new Point(401, 276);
+            comboBoxRoles_Role1.Location = new Point(183, 374);
             comboBoxRoles_Role1.Name = "comboBoxRoles_Role1";
             comboBoxRoles_Role1.Size = new Size(575, 53);
             comboBoxRoles_Role1.TabIndex = 20;
@@ -89,7 +91,7 @@
             buttonViewPriv_Role.BackColor = Color.Teal;
             buttonViewPriv_Role.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonViewPriv_Role.ForeColor = Color.White;
-            buttonViewPriv_Role.Location = new Point(444, 748);
+            buttonViewPriv_Role.Location = new Point(1223, 485);
             buttonViewPriv_Role.Name = "buttonViewPriv_Role";
             buttonViewPriv_Role.Size = new Size(232, 65);
             buttonViewPriv_Role.TabIndex = 32;
@@ -130,9 +132,9 @@
             // 
             // textBoxNewRole
             // 
-            textBoxNewRole.Location = new Point(1373, 271);
+            textBoxNewRole.Location = new Point(952, 374);
             textBoxNewRole.Name = "textBoxNewRole";
-            textBoxNewRole.Size = new Size(348, 50);
+            textBoxNewRole.Size = new Size(296, 50);
             textBoxNewRole.TabIndex = 25;
             // 
             // labelNewRole
@@ -140,7 +142,7 @@
             labelNewRole.AutoSize = true;
             labelNewRole.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelNewRole.ForeColor = Color.Teal;
-            labelNewRole.Location = new Point(1145, 274);
+            labelNewRole.Location = new Point(952, 303);
             labelNewRole.Name = "labelNewRole";
             labelNewRole.Size = new Size(180, 45);
             labelNewRole.TabIndex = 26;
@@ -153,12 +155,35 @@
             buttonCreateRole.Enabled = false;
             buttonCreateRole.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonCreateRole.ForeColor = Color.White;
-            buttonCreateRole.Location = new Point(1323, 384);
+            buttonCreateRole.Location = new Point(1386, 367);
             buttonCreateRole.Name = "buttonCreateRole";
-            buttonCreateRole.Size = new Size(232, 55);
+            buttonCreateRole.Size = new Size(232, 64);
             buttonCreateRole.TabIndex = 29;
             buttonCreateRole.Text = "CREATE ROLE";
             buttonCreateRole.UseVisualStyleBackColor = false;
+            // 
+            // listViewPrivs_Role
+            // 
+            listViewPrivs_Role.Location = new Point(952, 595);
+            listViewPrivs_Role.Name = "listViewPrivs_Role";
+            listViewPrivs_Role.Size = new Size(767, 317);
+            listViewPrivs_Role.TabIndex = 45;
+            listViewPrivs_Role.UseCompatibleStateImageBehavior = false;
+            // 
+            // buttonRevoke_Role
+            // 
+            buttonRevoke_Role.AutoSize = true;
+            buttonRevoke_Role.BackColor = Color.Teal;
+            buttonRevoke_Role.Enabled = false;
+            buttonRevoke_Role.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonRevoke_Role.ForeColor = Color.White;
+            buttonRevoke_Role.Location = new Point(1487, 485);
+            buttonRevoke_Role.Margin = new Padding(4);
+            buttonRevoke_Role.Name = "buttonRevoke_Role";
+            buttonRevoke_Role.Size = new Size(232, 65);
+            buttonRevoke_Role.TabIndex = 99;
+            buttonRevoke_Role.Text = "REVOKE PRIV";
+            buttonRevoke_Role.UseVisualStyleBackColor = false;
             // 
             // Role
             // 
@@ -166,6 +191,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1894, 1009);
+            Controls.Add(buttonRevoke_Role);
+            Controls.Add(listViewPrivs_Role);
             Controls.Add(label2);
             Controls.Add(panel1);
             Controls.Add(buttonViewPriv_Role);
@@ -198,5 +225,7 @@
         private TextBox textBoxNewRole;
         private Label labelNewRole;
         private Button buttonCreateRole;
+        private ListView listViewPrivs_Role;
+        private Button buttonRevoke_Role;
     }
 }

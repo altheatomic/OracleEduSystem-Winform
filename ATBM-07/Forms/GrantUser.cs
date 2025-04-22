@@ -68,7 +68,7 @@ namespace ATBM_07
                 comboBoxRoles_User2.Items.Clear();
 
                 comboBoxRoles_User2.Items.Add("None");
-                foreach (var role in RoleService.GetApplicationRoles())
+                foreach (var role in RoleService.GetAllRoles())
                 {
                     comboBoxRoles_User2.Items.Add(role);
                 }
@@ -95,7 +95,7 @@ namespace ATBM_07
             listViewUsers_User2.Items.Clear();
             comboBoxUsers_User2.Items.Clear();
 
-            // Reset the comboBoxes whenever the role changes
+            // Reset các combobox và checkbox
             comboBoxGrantRole.SelectedIndex = -1;
             comboBoxGrantRole.Text = "";
             comboBoxPrivTypes_User.SelectedIndex = -1;
@@ -110,26 +110,34 @@ namespace ATBM_07
             checkBoxWithGrant_User.Checked = false;
             checkBoxWithGrant_User.Enabled = false;
 
-            if (!string.IsNullOrEmpty(selectedRole) && selectedRole != "None")
+            try
             {
-                try
-                {
-                    var users = RoleService.GetUsersByRole(selectedRole);
+                List<string> users;
 
-                    foreach (var username in users)
-                    {
-                        var item = new ListViewItem(username);
-                        listViewUsers_User2.Items.Add(item);
-                        comboBoxUsers_User2.Items.Add(username);
-                    }
-
-                    if (comboBoxUsers_User2.Items.Count > 0)
-                        comboBoxUsers_User2.SelectedIndex = 0;
-                }
-                catch (Exception ex)
+                if (selectedRole == "None")
                 {
-                    MessageBox.Show("Oracle error:\n" + ex.Message);
+                    // Lấy danh sách user chưa được gán role nào
+                    users = UserService.GetUsersWithoutRoles();
                 }
+                else
+                {
+                    // Lấy danh sách user đang có role được chọn
+                    users = RoleService.GetUsersByRole(selectedRole);
+                }
+
+                foreach (var username in users)
+                {
+                    var item = new ListViewItem(username);
+                    listViewUsers_User2.Items.Add(item);
+                    comboBoxUsers_User2.Items.Add(username);
+                }
+
+                if (comboBoxUsers_User2.Items.Count > 0)
+                    comboBoxUsers_User2.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Oracle error:\n" + ex.Message);
             }
         }
 
@@ -204,8 +212,7 @@ namespace ATBM_07
             comboBoxColumns_User.Text = "";
 
             string selectedPriv = comboBoxPrivs_User.SelectedItem?.ToString()?.ToUpper() ?? "";
-
-            if (selectedPriv == "SELECT" || selectedPriv == "UPDATE")
+            if (selectedPriv == "SELECT" || selectedPriv == "UPDATE" || selectedPriv == "REFERENCES")
             {
                 comboBoxColumns_User.Enabled = true;
             }
@@ -346,7 +353,6 @@ namespace ATBM_07
         {
             bool isGrantRoleMode = checkBoxGrantRole.Checked;
 
-            // Grant role mode
             if (isGrantRoleMode)
             {
                 string selectedGrantRole = comboBoxGrantRole.SelectedItem?.ToString();
@@ -356,22 +362,42 @@ namespace ATBM_07
                     return;
                 }
 
-                MessageBox.Show($"Role '{selectedGrantRole}' can now be granted to selected users.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                foreach (ListViewItem item in listViewUsers_User2.CheckedItems)
+                {
+                    string username = item.Text;
+                    UserService.GrantRoleToUser(username, selectedGrantRole);
+                }
+
+                MessageBox.Show("Role granted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // Grant privs mode
-            var selectedType = comboBoxPrivTypes_User.SelectedItem?.ToString();
-            var selectedPriv = comboBoxPrivs_User.SelectedItem?.ToString();
-            var selectedObject = comboBoxObjects_User.SelectedItem?.ToString();
+            string selectedType = comboBoxPrivTypes_User.SelectedItem?.ToString();
+            string selectedPriv = comboBoxPrivs_User.SelectedItem?.ToString();
+            string selectedObject = comboBoxObjects_User.SelectedItem?.ToString();
+            string selectedColumn = comboBoxColumns_User.Enabled ? comboBoxColumns_User.SelectedItem?.ToString() : null;
+            bool withGrant = checkBoxWithGrant_User.Checked;
 
-            if (string.IsNullOrEmpty(selectedType))
+            if (string.IsNullOrEmpty(selectedType) || string.IsNullOrEmpty(selectedPriv) || string.IsNullOrEmpty(selectedObject))
             {
-                MessageBox.Show("No priv is chosen.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please select all required privilege fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            MessageBox.Show("Privilege can now be granted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                foreach (ListViewItem item in listViewUsers_User2.CheckedItems)
+                {
+                    string username = item.Text;
+                    UserService.GrantPrivilegeToUser(username, selectedPriv, selectedType, selectedObject, selectedColumn, withGrant);
+                }
+
+                MessageBox.Show("Privileges granted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error granting privilege:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -20,11 +20,11 @@ namespace ATBM_07
 
             if (DatabaseHelper.Connect(username, password))
             {
-                string role = DatabaseHelper.GetRoleFromVaitroFunction(); // GỌI SP MỚI
+                string role = DatabaseHelper.GetRole(username);
 
                 if (string.IsNullOrEmpty(role))
                 {
-                    MessageBox.Show("Không xác định được vai trò.");
+                    MessageBox.Show("Can't get role.");
                     return;
                 }
 
@@ -32,6 +32,8 @@ namespace ATBM_07
 
                 switch (role)
                 {
+                    case "PDB_DBA":
+                        new DashBoard_Admin().Show(); break;
                     case "SV":
                         new DashBoard_SV().Show(); break;
                     case "GV":
@@ -48,17 +50,16 @@ namespace ATBM_07
                         new DashBoard_TRGDV().Show(); break;
                     case "NVTCHC":
                         new DashBoard_NVTCHC().Show(); break;
-                    case "ADMIN":
-                        new DashBoard_Admin().Show(); break;
                     default:
-                        MessageBox.Show("Vai trò không hợp lệ: " + role);
+                        MessageBox.Show("Invalid role: " + role);
                         this.Show(); break;
                 }
             }
             else
             {
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.");
+                MessageBox.Show("Wrong information. Please try again.");
             }
+
         }
     }
 }

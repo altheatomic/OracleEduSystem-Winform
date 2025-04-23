@@ -20,7 +20,7 @@ namespace ATBM_07
 
             if (DatabaseHelper.Connect(username, password))
             {
-                string role = DatabaseHelper.GetRoleFromVaitroFunction();
+                string role = DatabaseHelper.GetRole(username);
 
                 if (string.IsNullOrEmpty(role))
                 {

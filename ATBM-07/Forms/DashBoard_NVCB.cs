@@ -74,7 +74,7 @@ namespace ATBM_07
                 if (confirmResult == DialogResult.Yes)
                 {
                     // Đóng kết nối database
-                    DatabaseHelper.Dispose();
+                    //DatabaseHelper.Dispose();
 
                     // Mở lại form đăng nhập
                     var loginForm = new Login(); // Thay LoginForm bằng tên form đăng nhập thực tế

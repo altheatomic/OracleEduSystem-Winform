@@ -85,8 +85,8 @@ namespace ATBM_07.Forms
             try
             {
                 // Sử dụng kết nối mới cho mỗi thao tác
-                using (var conn = DatabaseHelper.GetNewConnection())
-                using (var cmd = new OracleCommand("user_admin.sp_insert_nhanvien", conn))
+                //using (var conn = DatabaseHelper.GetNewConnection())
+                using (var cmd = new OracleCommand("user_admin.sp_insert_nhanvien"))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -136,8 +136,8 @@ namespace ATBM_07.Forms
         {
             try
             {
-                using (var conn = DatabaseHelper.GetNewConnection())
-                using (var cmd = new OracleCommand("user_admin.sp_update_nhanvien", conn))
+                //using (var conn = DatabaseHelper.GetNewConnection())
+                using (var cmd = new OracleCommand("user_admin.sp_update_nhanvien"))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -199,8 +199,8 @@ namespace ATBM_07.Forms
             try
             {
                 // Sử dụng kết nối mới
-                using (var conn = DatabaseHelper.GetNewConnection())
-                using (var cmd = new OracleCommand("user_admin.sp_delete_nhanvien", conn))
+                //using (var conn = DatabaseHelper.GetNewConnection())
+                using (var cmd = new OracleCommand("user_admin.sp_delete_nhanvien"))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("p_manv", OracleDbType.Varchar2).Value = txtNewMaNV.Text;
@@ -260,7 +260,7 @@ namespace ATBM_07.Forms
                 if (confirmResult == DialogResult.Yes)
                 {
                     // Đóng kết nối database
-                    DatabaseHelper.Dispose();
+                    //DatabaseHelper.Dispose();
 
                     // Mở lại form đăng nhập
                     var loginForm = new Login(); // Thay LoginForm bằng tên form đăng nhập thực tế

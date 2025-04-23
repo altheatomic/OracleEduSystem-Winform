@@ -13,8 +13,8 @@ namespace ATBM_07.Services
         // Lấy thông tin nhân viên
         public static DataRow GetCurrentNhanVien()
         {
-            using (var conn = DatabaseHelper.GetNewConnection()) // Sử dụng kết nối mới
-            using (var cmd = new OracleCommand("SELECT * FROM user_admin.V_NHANVIEN_NVCB", conn))
+            //using (var conn = DatabaseHelper.GetNewConnection()) // Sử dụng kết nối mới
+            using (var cmd = new OracleCommand("SELECT * FROM user_admin.V_NHANVIEN_NVCB", DatabaseHelper.Connection))
             using (var adapter = new OracleDataAdapter(cmd))
             {
                 var table = new DataTable();
@@ -34,8 +34,8 @@ namespace ATBM_07.Services
         // Update DT của NVCB
         public static void UpdateSDT(string newSDT)
         {
-            using (var conn = DatabaseHelper.GetNewConnection())
-            using (var cmd = new OracleCommand("UPDATE user_admin.V_NHANVIEN_NVCB SET DT = :newSDT", conn))
+            //using (var conn = DatabaseHelper.GetNewConnection())
+            using (var cmd = new OracleCommand("UPDATE user_admin.V_NHANVIEN_NVCB SET DT = :newSDT", DatabaseHelper.Connection))
             {
                 cmd.Parameters.Add("newSDT", OracleDbType.Varchar2).Value = newSDT;
                 try
@@ -56,8 +56,8 @@ namespace ATBM_07.Services
             var table = new DataTable();
             try
             {
-                using (var conn = DatabaseHelper.GetNewConnection())
-                using (var cmd = new OracleCommand("SELECT * FROM user_admin.V_NHANVIEN_NVTCHC", conn))
+                //using (var conn = DatabaseHelper.GetNewConnection())
+                using (var cmd = new OracleCommand("SELECT * FROM user_admin.V_NHANVIEN_NVTCHC", DatabaseHelper.Connection))
                 using (var adapter = new OracleDataAdapter(cmd))
                 {
                     adapter.Fill(table);
@@ -84,8 +84,8 @@ namespace ATBM_07.Services
             try
             {
                 // Sử dụng kết nối mới, tự giải phóng
-                using (var conn = DatabaseHelper.GetNewConnection())
-                using (var cmd = new OracleCommand("SELECT MADV FROM user_admin.DONVI", conn))
+                //using (var conn = DatabaseHelper.GetNewConnection())
+                using (var cmd = new OracleCommand("SELECT MADV FROM user_admin.DONVI", DatabaseHelper.Connection))
                 using (var adapter = new OracleDataAdapter(cmd))
                 {
                     adapter.Fill(table);

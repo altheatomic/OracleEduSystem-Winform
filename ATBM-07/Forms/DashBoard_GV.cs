@@ -80,7 +80,6 @@ namespace ATBM_07.Forms
             }
         }
 
-
         private void LoadMonHoc()
         {
             try

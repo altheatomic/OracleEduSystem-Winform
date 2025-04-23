@@ -66,15 +66,15 @@ namespace ATBM_07
             try
             {
                 // Hiển thị hộp thoại xác nhận
-                var confirmResult = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?",
-                                                  "Xác nhận đăng xuất",
+                var confirmResult = MessageBox.Show("Do you want to log out?",
+                                                  "Confirm",
                                                   MessageBoxButtons.YesNo,
                                                   MessageBoxIcon.Question);
 
                 if (confirmResult == DialogResult.Yes)
                 {
                     // Đóng kết nối database
-                    //DatabaseHelper.Dispose();
+                    DatabaseHelper.Dispose();
 
                     // Mở lại form đăng nhập
                     var loginForm = new Login(); // Thay LoginForm bằng tên form đăng nhập thực tế
@@ -86,7 +86,8 @@ namespace ATBM_07
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi đăng xuất: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show($"Lỗi khi đăng xuất: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erorr");
             }
         }
     }

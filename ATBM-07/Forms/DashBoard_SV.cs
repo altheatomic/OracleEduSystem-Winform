@@ -43,7 +43,7 @@ namespace ATBM_07.Forms
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+                //MessageBox.Show(ex.Message);
             }
         }
 
@@ -56,17 +56,17 @@ namespace ATBM_07.Forms
                 if (!string.IsNullOrEmpty(maMoMon))
                 {
                     SVService.AddDataTableFromProcedure(maMoMon);
-                    MessageBox.Show("Đăng ký môn học thành công!");
+                    MessageBox.Show("Course registration successful!");
                     dataGridView1.DataSource = SVService.GetDangKy_SV();
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng nhập mã môn học.");
+                    MessageBox.Show("Please enter the MAMM!");
                 }
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Lỗi: " + ex.Message);
+                //MessageBox.Show(ex.Message);
             }
         }
 
@@ -78,20 +78,28 @@ namespace ATBM_07.Forms
                 i = dataGridView1.CurrentRow.Index;
 
                 string maMoMon;
-                maMoMon = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                maMoMon = dataGridView1.Rows[i].Cells[1].Value.ToString();
 
                 if (!string.IsNullOrEmpty(maMoMon))
                 {
                     SVService.DeleteDataTableFromProcedure(maMoMon);
-                    MessageBox.Show("Hủy đăng ký môn học thành công!");
+                    MessageBox.Show("Course cancellation successful!");
                     dataGridView1.DataSource = SVService.GetDangKy_SV();
                     this.Load += DashBoard_SV_Load;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
+                //MessageBox.Show(ex.Message);
             }
+        }
+
+        private void txtMaSV_TextChanged(object sender, EventArgs e)
+        {
+            int i;
+            i = dataGridView1.CurrentRow.Index;
+            txtMaSV.Text = dataGridView1.Rows[0].Cells[i].Value.ToString();
+            txtHoTen.Text = dataGridView1.Rows[1].Cells[i].Value.ToString();
         }
     }
 }

@@ -80,6 +80,7 @@
             txtMaSV.ReadOnly = true;
             txtMaSV.Size = new Size(120, 29);
             txtMaSV.TabIndex = 2;
+            txtMaSV.TextChanged += txtMaSV_TextChanged;
             // 
             // txtPhai
             // 

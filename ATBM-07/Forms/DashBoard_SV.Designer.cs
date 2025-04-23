@@ -55,6 +55,7 @@
             btnSudentDeleteCourse = new Button();
             groupBox2 = new GroupBox();
             btnSudentUpdateCourse = new Button();
+            btnLogout = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox2.SuspendLayout();
@@ -81,7 +82,6 @@
             txtMaSV.ReadOnly = true;
             txtMaSV.Size = new Size(120, 29);
             txtMaSV.TabIndex = 2;
-            txtMaSV.TextChanged += txtMaSV_TextChanged;
             // 
             // txtPhai
             // 
@@ -239,7 +239,7 @@
             lbSTUDENTINFO.AutoSize = true;
             lbSTUDENTINFO.Font = new Font("Segoe UI", 12F);
             lbSTUDENTINFO.ForeColor = Color.Teal;
-            lbSTUDENTINFO.Location = new Point(324, 35);
+            lbSTUDENTINFO.Location = new Point(363, 39);
             lbSTUDENTINFO.Name = "lbSTUDENTINFO";
             lbSTUDENTINFO.Size = new Size(128, 21);
             lbSTUDENTINFO.TabIndex = 17;
@@ -286,13 +286,14 @@
             btnStudentUpdateStudent.TabIndex = 92;
             btnStudentUpdateStudent.Text = "Update";
             btnStudentUpdateStudent.UseVisualStyleBackColor = true;
+            btnStudentUpdateStudent.Click += btnStudentUpdateStudent_Click;
             // 
             // lbREGISTERFORCOURSES
             // 
             lbREGISTERFORCOURSES.AutoSize = true;
             lbREGISTERFORCOURSES.Font = new Font("Segoe UI", 12F);
             lbREGISTERFORCOURSES.ForeColor = Color.Teal;
-            lbREGISTERFORCOURSES.Location = new Point(372, 441);
+            lbREGISTERFORCOURSES.Location = new Point(336, 441);
             lbREGISTERFORCOURSES.Name = "lbREGISTERFORCOURSES";
             lbREGISTERFORCOURSES.Size = new Size(185, 21);
             lbREGISTERFORCOURSES.TabIndex = 19;
@@ -391,12 +392,23 @@
             btnSudentUpdateCourse.UseVisualStyleBackColor = true;
             btnSudentUpdateCourse.Click += btnSudentUpdateCourse_Click;
             // 
+            // btnLogout
+            // 
+            btnLogout.Location = new Point(400, 812);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(75, 23);
+            btnLogout.TabIndex = 93;
+            btnLogout.Text = "Log Out";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click_1;
+            // 
             // DashBoard_SV
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(1894, 1009);
+            ClientSize = new Size(854, 861);
+            Controls.Add(btnLogout);
             Controls.Add(btnSudentDeleteCourse);
             Controls.Add(txtMaMM);
             Controls.Add(label11);
@@ -444,5 +456,6 @@
         private Button btnSudentDeleteCourse;
         private GroupBox groupBox2;
         private Button btnSudentUpdateCourse;
+        private Button btnLogout;
     }
 }

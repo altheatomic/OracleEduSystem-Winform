@@ -1,4 +1,5 @@
-﻿using ATBM_07.Services;
+﻿using ATBM_07.Helpers;
+using ATBM_07.Services;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
@@ -17,14 +18,44 @@ namespace ATBM_07.Forms
         public DashBoard_SV()
         {
             InitializeComponent();
+            txtMaSV.ReadOnly = true;
+            txtHoTen.ReadOnly = true;
+            txtPhai.ReadOnly = true;
+            txtNgSinh.ReadOnly = true;
+            txtDiaChi.ReadOnly = false;
+            txtKhoa.ReadOnly = true;
+            txtDT.ReadOnly = false;
+            txtTinhTrang.ReadOnly = true;
             this.Load += DashBoard_SV_Load;
         }
-
         private void DashBoard_SV_Load(object sender, EventArgs e)
         {
             LoadDataToGrid();
+            LoadSinhVienInfo();
+            LoadDataToGrid();
         }
-
+        private void LoadSinhVienInfo()
+        {
+            try
+            {
+                var sv = SVService.GetCurrentSinhVien_SV();
+                if (sv != null)
+                {
+                    txtMaSV.Text = sv["MASV"].ToString();
+                    txtHoTen.Text = sv["HOTEN"].ToString();
+                    txtPhai.Text = sv["PHAI"].ToString();
+                    txtNgSinh.Text = sv["NGSINH"].ToString();
+                    txtDiaChi.Text = sv["DCHI"].ToString();
+                    txtDT.Text = sv["DT"].ToString();
+                    txtKhoa.Text = sv["KHOA"].ToString();
+                    txtTinhTrang.Text = sv["TINHTRANG"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi load SV: " + ex.Message);
+            }
+        }
         private void LoadDataToGrid()
         {
             try
@@ -47,6 +78,30 @@ namespace ATBM_07.Forms
             }
         }
 
+        private void btnStudentUpdateStudent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string diaChi_2;
+                diaChi_2 = txtDiaChi.Text.Trim();
+                string dienThoai_2;
+                dienThoai_2 = txtDT.Text.Trim();
+
+                if (!string.IsNullOrEmpty(diaChi_2) && !string.IsNullOrEmpty(dienThoai_2))
+                {
+                    SVService.UpdateSinhVienInfoFromProcedure(diaChi_2, dienThoai_2);
+                    MessageBox.Show("Stident's info update successful!");
+                    this.Load += DashBoard_SV_Load;
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+                MessageBox.Show("Error");
+            }
+
+        }
+
         private void btnSudentInsertCourse_Click(object sender, EventArgs e)
         {
             try
@@ -61,12 +116,12 @@ namespace ATBM_07.Forms
                 }
                 else
                 {
-                    MessageBox.Show("Please enter the MAMM!");
+                    //MessageBox.Show("Please enter the MAMM!");
                 }
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -128,5 +183,34 @@ namespace ATBM_07.Forms
             txtHoTen.Text = dataGridView1.Rows[1].Cells[i].Value.ToString();
         }
 
+        private void btnLogout_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                // Hiển thị hộp thoại xác nhận
+                var confirmResult = MessageBox.Show("Do you want to log out?",
+                                                  "Confirm",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
+
+                if (confirmResult == DialogResult.Yes)
+                {
+                    // Đóng kết nối database
+                    DatabaseHelper.Dispose();
+
+                    // Mở lại form đăng nhập
+                    var loginForm = new Login(); // Thay LoginForm bằng tên form đăng nhập thực tế
+                    loginForm.Show();
+
+                    // Đóng form hiện tại
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show($"Lỗi khi đăng xuất: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erorr");
+            }
+        }
     }
 }

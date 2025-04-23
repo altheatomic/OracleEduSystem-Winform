@@ -109,33 +109,6 @@ namespace ATBM_07.Services
             return users;
         }
 
-        public static List<string> GetPrivilegesOfRole(string roleName)
-        {
-            var privileges = new List<string>();
-
-            using (var cmd = new OracleCommand("get_privs_of_role", DatabaseHelper.Connection))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("p_role_name", OracleDbType.Varchar2).Value = roleName.ToUpper();
-
-                var output = new OracleParameter("p_privs", OracleDbType.RefCursor)
-                {
-                    Direction = ParameterDirection.Output
-                };
-                cmd.Parameters.Add(output);
-
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        privileges.Add(reader.GetString(0));
-                    }
-                }
-            }
-
-            return privileges;
-        }
-
         public static void RevokeSystemPrivilege(string role, string privilege)
         {
             using (var cmd = new OracleCommand("revoke_priv_from_role", DatabaseHelper.Connection))

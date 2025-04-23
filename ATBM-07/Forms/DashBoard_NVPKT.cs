@@ -21,9 +21,9 @@ namespace ATBM_07.Forms
             try
             {
                 DataTable dt = NVPKTService.GetAllDiem();
-                dataGridViewGrades.DataSource = dt;
+                dataGridViewDangKy.DataSource = dt;
 
-                foreach (DataGridViewColumn col in dataGridViewGrades.Columns)
+                foreach (DataGridViewColumn col in dataGridViewDangKy.Columns)
                 {
                     col.ReadOnly = !(col.Name == "DIEMTH" || col.Name == "DIEMQT" || col.Name == "DIEMCK" || col.Name == "DIEMTK");
                 }
@@ -38,7 +38,7 @@ namespace ATBM_07.Forms
         {
             try
             {
-                foreach (DataGridViewRow row in dataGridViewGrades.Rows)
+                foreach (DataGridViewRow row in dataGridViewDangKy.Rows)
                 {
                     if (row.IsNewRow) continue;
 

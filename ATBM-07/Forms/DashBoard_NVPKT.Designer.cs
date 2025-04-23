@@ -30,10 +30,10 @@
         {
             panel1 = new Panel();
             label1 = new Label();
-            dataGridViewGrades = new DataGridView();
+            dataGridViewDangKy = new DataGridView();
             btnSave = new Button();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewGrades).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDangKy).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -57,14 +57,14 @@
             label1.Text = "ORACLE DATABASE MANAGER";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
-            // dataGridViewGrades
+            // dataGridViewDangKy
             // 
-            dataGridViewGrades.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewGrades.Location = new Point(147, 213);
-            dataGridViewGrades.Name = "dataGridViewGrades";
-            dataGridViewGrades.RowHeadersWidth = 82;
-            dataGridViewGrades.Size = new Size(1294, 637);
-            dataGridViewGrades.TabIndex = 2;
+            dataGridViewDangKy.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDangKy.Location = new Point(147, 213);
+            dataGridViewDangKy.Name = "dataGridViewDangKy";
+            dataGridViewDangKy.RowHeadersWidth = 82;
+            dataGridViewDangKy.Size = new Size(1294, 637);
+            dataGridViewDangKy.TabIndex = 2;
             // 
             // btnSave
             // 
@@ -75,7 +75,7 @@
             btnSave.FlatStyle = FlatStyle.Flat;
             btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSave.ForeColor = Color.Teal;
-            btnSave.Location = new Point(1597, 345);
+            btnSave.Location = new Point(1597, 344);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(150, 57);
             btnSave.TabIndex = 92;
@@ -89,7 +89,7 @@
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(1894, 1009);
             Controls.Add(btnSave);
-            Controls.Add(dataGridViewGrades);
+            Controls.Add(dataGridViewDangKy);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
@@ -97,7 +97,7 @@
             Text = "DashBoard_NVPKT";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewGrades).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDangKy).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -106,7 +106,7 @@
 
         private Panel panel1;
         private Label label1;
-        private DataGridView dataGridViewGrades;
+        private DataGridView dataGridViewDangKy;
         private Button btnSave;
     }
 }

@@ -93,6 +93,32 @@ namespace ATBM_07.Forms
                 //MessageBox.Show(ex.Message);
             }
         }
+        private void btnSudentUpdateCourse_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int i;
+                i = dataGridView1.CurrentRow.Index;
+
+                string maMoMon_1;
+                maMoMon_1 = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                string maMoMon_2;
+                maMoMon_2 = txtMaMM.Text.Trim();
+
+                if (!string.IsNullOrEmpty(maMoMon_2))
+                {
+                    SVService.UpdateDataTableFromProcedure(maMoMon_1, maMoMon_2);
+                    MessageBox.Show("Course update successful!");
+                    dataGridView1.DataSource = SVService.GetDangKy_SV();
+                    this.Load += DashBoard_SV_Load;
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
+
+        }
 
         private void txtMaSV_TextChanged(object sender, EventArgs e)
         {
@@ -101,5 +127,6 @@ namespace ATBM_07.Forms
             txtMaSV.Text = dataGridView1.Rows[0].Cells[i].Value.ToString();
             txtHoTen.Text = dataGridView1.Rows[1].Cells[i].Value.ToString();
         }
+
     }
 }

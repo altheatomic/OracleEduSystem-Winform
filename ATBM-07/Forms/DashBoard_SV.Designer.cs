@@ -54,6 +54,7 @@
             label11 = new Label();
             btnSudentDeleteCourse = new Button();
             groupBox2 = new GroupBox();
+            btnSudentUpdateCourse = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox2.SuspendLayout();
@@ -320,7 +321,7 @@
             btnSudentInsertCourse.ForeColor = Color.Teal;
             btnSudentInsertCourse.Location = new Point(593, 553);
             btnSudentInsertCourse.Name = "btnSudentInsertCourse";
-            btnSudentInsertCourse.Size = new Size(64, 33);
+            btnSudentInsertCourse.Size = new Size(78, 33);
             btnSudentInsertCourse.TabIndex = 93;
             btnSudentInsertCourse.Text = "Insert";
             btnSudentInsertCourse.UseVisualStyleBackColor = true;
@@ -357,7 +358,7 @@
             btnSudentDeleteCourse.ForeColor = Color.Teal;
             btnSudentDeleteCourse.Location = new Point(593, 663);
             btnSudentDeleteCourse.Name = "btnSudentDeleteCourse";
-            btnSudentDeleteCourse.Size = new Size(66, 33);
+            btnSudentDeleteCourse.Size = new Size(78, 33);
             btnSudentDeleteCourse.TabIndex = 95;
             btnSudentDeleteCourse.Text = "Delete";
             btnSudentDeleteCourse.UseVisualStyleBackColor = true;
@@ -365,12 +366,30 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnSudentUpdateCourse);
             groupBox2.Controls.Add(dataGridView1);
             groupBox2.Location = new Point(39, 465);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(770, 326);
             groupBox2.TabIndex = 96;
             groupBox2.TabStop = false;
+            // 
+            // btnSudentUpdateCourse
+            // 
+            btnSudentUpdateCourse.AutoSize = true;
+            btnSudentUpdateCourse.FlatAppearance.BorderColor = Color.Teal;
+            btnSudentUpdateCourse.FlatAppearance.MouseDownBackColor = Color.DarkSlateGray;
+            btnSudentUpdateCourse.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 255, 128);
+            btnSudentUpdateCourse.FlatStyle = FlatStyle.Flat;
+            btnSudentUpdateCourse.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSudentUpdateCourse.ForeColor = Color.Teal;
+            btnSudentUpdateCourse.Location = new Point(554, 144);
+            btnSudentUpdateCourse.Name = "btnSudentUpdateCourse";
+            btnSudentUpdateCourse.Size = new Size(78, 33);
+            btnSudentUpdateCourse.TabIndex = 97;
+            btnSudentUpdateCourse.Text = "Update";
+            btnSudentUpdateCourse.UseVisualStyleBackColor = true;
+            btnSudentUpdateCourse.Click += btnSudentUpdateCourse_Click;
             // 
             // DashBoard_SV
             // 
@@ -392,6 +411,7 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -423,5 +443,6 @@
         private Label label11;
         private Button btnSudentDeleteCourse;
         private GroupBox groupBox2;
+        private Button btnSudentUpdateCourse;
     }
 }

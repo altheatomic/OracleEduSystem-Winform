@@ -48,6 +48,16 @@ namespace ATBM_07.Services
                 cmd.ExecuteNonQuery(); // Vì không có kết quả trả về
             }
         }
+        public static void UpdateDataTableFromProcedure(string mamm_1, string mamm_2)
+        {
+            using (var cmd = new OracleCommand("user_admin.UPDATE_DANGKY_SV", DatabaseHelper.Connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("p_mamm_1", OracleDbType.Varchar2).Value = mamm_1;
+                cmd.Parameters.Add("p_mamm_2", OracleDbType.Varchar2).Value = mamm_2;
+                cmd.ExecuteNonQuery(); // Vì không có kết quả trả về
+            }
+        }
 
     }
 }

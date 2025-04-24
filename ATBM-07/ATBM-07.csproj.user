@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Forms\DashBoard_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\DashBoard_GV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\DashBoard_NVCB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\DashBoard_NVCTSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\DashBoard_NVPDT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\DashBoard_NVPKT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\DashBoard_NVTCHC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\DashBoard_TRGDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\GrantRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\GrantUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\InsertSinhVienForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Role.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\DashBoard_SV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ViewPriv_Role.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Forms\DashBoard_NVCB.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

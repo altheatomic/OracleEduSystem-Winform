@@ -87,14 +87,19 @@ namespace ATBM_07.Forms
                 using (var cmd = new OracleCommand("user_admin.GET_MAMM_BY_GV", DatabaseHelper.Connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("p_user_id", OracleDbType.Varchar2).Value = userID;
+                    cmd.Parameters.Add("p_MAGV", OracleDbType.Varchar2).Value = userID;
                     cmd.Parameters.Add("p_monhoc_cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
 
                     OracleDataAdapter da = new OracleDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
+             
+
                     cbb_subject.DataSource = dt;
+
+                    
+
                     cbb_subject.DisplayMember = "TENHP";
                     cbb_subject.ValueMember = "MAMM";
                 }

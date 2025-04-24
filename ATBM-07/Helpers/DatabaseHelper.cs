@@ -1,5 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
-
+using System;
+using System.Data;
+using System.Windows.Forms;
 namespace ATBM_07.Helpers
 {
     public static class DatabaseHelper
@@ -22,6 +24,9 @@ namespace ATBM_07.Helpers
                 return false;
             }
         }
+
+
+
         public static string GetRole(string username)
         {
             try
@@ -33,8 +38,15 @@ namespace ATBM_07.Helpers
 
                 using (var cmd = new OracleCommand("SELECT user_admin.get_vaitro FROM dual", Connection))
                 {
-                    return cmd.ExecuteScalar()?.ToString();
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return reader.GetString(0);
+                        }
+                    }
                 }
+                return null;
             }
             catch (Exception ex)
             {

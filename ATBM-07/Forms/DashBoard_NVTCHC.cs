@@ -85,8 +85,8 @@ namespace ATBM_07.Forms
             try
             {
                 // Sử dụng kết nối mới cho mỗi thao tác
-                //using (var conn = DatabaseHelper.GetNewConnection())
-                using (var cmd = new OracleCommand("user_admin.sp_insert_nhanvien"))
+                
+                using (var cmd = new OracleCommand("user_admin.sp_insert_nhanvien", DatabaseHelper.Connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -136,8 +136,8 @@ namespace ATBM_07.Forms
         {
             try
             {
-                //using (var conn = DatabaseHelper.GetNewConnection())
-                using (var cmd = new OracleCommand("user_admin.sp_update_nhanvien"))
+                
+                using (var cmd = new OracleCommand("user_admin.sp_update_nhanvien", DatabaseHelper.Connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -199,8 +199,8 @@ namespace ATBM_07.Forms
             try
             {
                 // Sử dụng kết nối mới
-                //using (var conn = DatabaseHelper.GetNewConnection())
-                using (var cmd = new OracleCommand("user_admin.sp_delete_nhanvien"))
+                
+                using (var cmd = new OracleCommand("user_admin.sp_delete_nhanvien", DatabaseHelper.Connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("p_manv", OracleDbType.Varchar2).Value = txtNewMaNV.Text;

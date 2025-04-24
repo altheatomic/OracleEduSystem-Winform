@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label10 = new Label();
-            dataGridView1 = new DataGridView();
-            btnLogout = new Button();
-            txtTitle = new Label();
-            groupBox1 = new GroupBox();
             txtPhuCap = new TextBox();
             label11 = new Label();
             txtLuong = new TextBox();
@@ -52,77 +47,14 @@
             label4 = new Label();
             txtNgSinh = new TextBox();
             label5 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            btnLogout = new Button();
+            txtTitle = new Label();
+            groupBox1 = new GroupBox();
+            dataGridView1 = new DataGridView();
+            label10 = new Label();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 12F);
-            label10.ForeColor = Color.Teal;
-            label10.Location = new Point(283, 466);
-            label10.Name = "label10";
-            label10.Size = new Size(187, 21);
-            label10.TabIndex = 20;
-            label10.Text = "PHÂN CÔNG GIẢNG DẠY";
-            label10.TextAlign = ContentAlignment.TopCenter;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(52, 530);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(643, 300);
-            dataGridView1.TabIndex = 21;
-            // 
-            // btnLogout
-            // 
-            btnLogout.Location = new Point(340, 878);
-            btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(75, 23);
-            btnLogout.TabIndex = 34;
-            btnLogout.Text = "Log Out";
-            btnLogout.UseVisualStyleBackColor = true;
-            // 
-            // txtTitle
-            // 
-            txtTitle.AutoSize = true;
-            txtTitle.Font = new Font("Segoe UI", 12F);
-            txtTitle.ForeColor = Color.Teal;
-            txtTitle.Location = new Point(306, 46);
-            txtTitle.Name = "txtTitle";
-            txtTitle.Size = new Size(136, 21);
-            txtTitle.TabIndex = 33;
-            txtTitle.Text = "EMPLOYEE's INFO";
-            txtTitle.TextAlign = ContentAlignment.TopCenter;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(txtPhuCap);
-            groupBox1.Controls.Add(label11);
-            groupBox1.Controls.Add(txtLuong);
-            groupBox1.Controls.Add(btnUpdateTeleEmployee);
-            groupBox1.Controls.Add(txtHoTen);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(txtVaiTro);
-            groupBox1.Controls.Add(txtMaNV);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(txtMaDV);
-            groupBox1.Controls.Add(txtPhai);
-            groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(txtDT);
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(txtNgSinh);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Location = new Point(52, 70);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(643, 355);
-            groupBox1.TabIndex = 32;
-            groupBox1.TabStop = false;
             // 
             // txtPhuCap
             // 
@@ -171,7 +103,6 @@
             btnUpdateTeleEmployee.TabIndex = 92;
             btnUpdateTeleEmployee.Text = "Update";
             btnUpdateTeleEmployee.UseVisualStyleBackColor = true;
-            btnUpdateTeleEmployee.Click += btnUpdateTeleEmployee_Click;
             // 
             // txtHoTen
             // 
@@ -337,6 +268,77 @@
             label5.Text = "Date of birth";
             label5.TextAlign = ContentAlignment.TopCenter;
             // 
+            // btnLogout
+            // 
+            btnLogout.Location = new Point(367, 909);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(75, 23);
+            btnLogout.TabIndex = 39;
+            btnLogout.Text = "Log Out";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click_1;
+            // 
+            // txtTitle
+            // 
+            txtTitle.AutoSize = true;
+            txtTitle.Font = new Font("Segoe UI", 12F);
+            txtTitle.ForeColor = Color.Teal;
+            txtTitle.Location = new Point(333, 77);
+            txtTitle.Name = "txtTitle";
+            txtTitle.Size = new Size(136, 21);
+            txtTitle.TabIndex = 38;
+            txtTitle.Text = "EMPLOYEE's INFO";
+            txtTitle.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(txtPhuCap);
+            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(txtLuong);
+            groupBox1.Controls.Add(btnUpdateTeleEmployee);
+            groupBox1.Controls.Add(txtHoTen);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(txtVaiTro);
+            groupBox1.Controls.Add(txtMaNV);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(txtMaDV);
+            groupBox1.Controls.Add(txtPhai);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(txtDT);
+            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(txtNgSinh);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Location = new Point(79, 101);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(643, 355);
+            groupBox1.TabIndex = 37;
+            groupBox1.TabStop = false;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.BackgroundColor = SystemColors.ControlLightLight;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(79, 561);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(643, 300);
+            dataGridView1.TabIndex = 36;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 12F);
+            label10.ForeColor = Color.Teal;
+            label10.Location = new Point(308, 509);
+            label10.Name = "label10";
+            label10.Size = new Size(185, 21);
+            label10.TabIndex = 35;
+            label10.Text = "TEACHING ASSIGNMENT";
+            label10.TextAlign = ContentAlignment.TopCenter;
+            // 
             // DashBoard_TRGDV
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -350,20 +352,15 @@
             Controls.Add(label10);
             Name = "DashBoard_TRGDV";
             Text = "DashBoard_TRGDV";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label10;
-        private DataGridView dataGridView1;
-        private Button btnLogout;
-        private Label txtTitle;
-        private GroupBox groupBox1;
         private TextBox txtPhuCap;
         private Label label11;
         private TextBox txtLuong;
@@ -383,5 +380,10 @@
         private Label label4;
         private TextBox txtNgSinh;
         private Label label5;
+        private Button btnLogout;
+        private Label txtTitle;
+        private GroupBox groupBox1;
+        private DataGridView dataGridView1;
+        private Label label10;
     }
 }

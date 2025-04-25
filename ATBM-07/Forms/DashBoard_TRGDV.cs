@@ -28,8 +28,14 @@ namespace ATBM_07.Forms
             txtMaDV.ReadOnly = true;
             this.Load += Dashboard_TRGDV_Load;
         }
-
         private void Dashboard_TRGDV_Load(object sender, EventArgs e)
+        {
+            LoadDataToGrid();
+            Dashboard_TRGDV_Info();
+            LoadDataToGrid();
+        }
+
+        private void Dashboard_TRGDV_Info()
         {
             var nv = NhanVienService.GetCurrentNhanVien();
             if (nv != null)
@@ -43,7 +49,18 @@ namespace ATBM_07.Forms
                 txtDT.Text = nv["DT"].ToString();
                 txtVaiTro.Text = nv["VAITRO"].ToString();
                 txtMaDV.Text = nv["MADV"].ToString();
-                // ... các trường khác nếu cần (MANLĐ, HOTEN, PHAI, NGSINH, LUONG, PHUCAP, ĐT, VAITRO, MAĐV)
+            }
+        }
+        private void LoadDataToGrid()
+        {
+            try
+            {
+                var dt = TRGDVService.Get_MoMon_TRGDV();
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
             }
         }
 
@@ -53,13 +70,14 @@ namespace ATBM_07.Forms
             try
             {
                 NhanVienService.UpdateSDT(newSDT);
-                MessageBox.Show("Cập nhật số điện thoại thành công!");
+                MessageBox.Show("Update successfully!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi cập nhật: " + ex.Message);
+                MessageBox.Show("Error");
             }
         }
+
 
         private void btnLogout_Click_1(object sender, EventArgs e)
         {

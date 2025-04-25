@@ -308,6 +308,7 @@
             dataGridView1.Location = new Point(23, 33);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ScrollBars = ScrollBars.Vertical;
+            dataGridView1.ScrollBars = ScrollBars.Horizontal;
             dataGridView1.Size = new Size(483, 271);
             dataGridView1.TabIndex = 20;
             // 

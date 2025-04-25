@@ -63,14 +63,14 @@ namespace ATBM_07.Forms
                 var dt = SVService.GetDangKy_SV();
                 dataGridView1.DataSource = dt;
 
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
 
-                dataGridView1.Columns["MASV"].Width = 80;
-                dataGridView1.Columns["MAMM"].Width = 80;
-                dataGridView1.Columns["DIEMTH"].Width = 65;
-                dataGridView1.Columns["DIEMQT"].Width = 65;
-                dataGridView1.Columns["DIEMCK"].Width = 65;
-                dataGridView1.Columns["DIEMTK"].Width = 65;
+                //dataGridView1.Columns["MASV"].Width = 80;
+                //dataGridView1.Columns["MAMM"].Width = 80;
+                //dataGridView1.Columns["DIEMTH"].Width = 65;
+                //dataGridView1.Columns["DIEMQT"].Width = 65;
+                //dataGridView1.Columns["DIEMCK"].Width = 65;
+                //dataGridView1.Columns["DIEMTK"].Width = 65;
             }
             catch (Exception ex)
             {
